@@ -1059,6 +1059,16 @@ function hideSnapshot() {
   snapCanvas.classList.remove('visible');
 }
 
+/* Freeze-seek handler: defined at module level so playTransition can cancel it */
+function _freezeSeeked() {
+  bgVideo.removeEventListener('seeked', _freezeSeeked);
+  bgVideo.pause();
+  hideSnapshot();
+}
+function cancelPendingFreeze() {
+  bgVideo.removeEventListener('seeked', _freezeSeeked);
+}
+
 function loadAndFreeze(fromIdx) {
   // Update poster for mobile fallback (only matters on initial load / if video never loads)
   bgVideo.setAttribute('poster', players[fromIdx].poster);
@@ -1073,18 +1083,9 @@ function loadAndFreeze(fromIdx) {
   const reverseKey = `${prevIdx}-${fromIdx}`;
 
   // Helper: hide snapshot only AFTER seek completes (prevents frame flash)
-  // Use a named handler so we can remove it if a new transition starts
-  function _freezeSeeked() {
-    bgVideo.removeEventListener('seeked', _freezeSeeked);
-    bgVideo.pause();
-    hideSnapshot();
-  }
   function hideAfterSeek() {
-    bgVideo.removeEventListener('seeked', _freezeSeeked); // remove any stale one
+    cancelPendingFreeze(); // remove any stale one
     bgVideo.addEventListener('seeked', _freezeSeeked);
-  }
-  function cancelPendingFreeze() {
-    bgVideo.removeEventListener('seeked', _freezeSeeked);
   }
 
   if (transitions[forwardKey]) {
