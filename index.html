@@ -1072,13 +1072,21 @@ function loadAndFreeze(fromIdx) {
   const prevIdx = (fromIdx - 1 + players.length) % players.length;
   const reverseKey = `${prevIdx}-${fromIdx}`;
 
+  // Helper: hide snapshot only AFTER seek completes (prevents frame flash)
+  function hideAfterSeek() {
+    bgVideo.addEventListener('seeked', function onSeeked() {
+      bgVideo.removeEventListener('seeked', onSeeked);
+      bgVideo.pause();
+      hideSnapshot();
+    });
+  }
+
   if (transitions[forwardKey]) {
     bgVideo.src = transitions[forwardKey];
     bgVideo.load();
     bgVideo.onloadeddata = () => {
       bgVideo.currentTime = 0;
-      bgVideo.pause();
-      hideSnapshot(); // New frame ready — hide snapshot
+      hideAfterSeek();
     };
   } else if (transitions[reverseKey]) {
     bgVideo.src = transitions[reverseKey];
@@ -1086,14 +1094,12 @@ function loadAndFreeze(fromIdx) {
     function seekToEnd() {
       if (bgVideo.duration && isFinite(bgVideo.duration) && bgVideo.duration > 0) {
         bgVideo.currentTime = bgVideo.duration - 0.05;
-        bgVideo.pause();
-        hideSnapshot();
+        hideAfterSeek();
       } else {
         bgVideo.addEventListener('loadedmetadata', function h() {
           bgVideo.removeEventListener('loadedmetadata', h);
           bgVideo.currentTime = bgVideo.duration - 0.05;
-          bgVideo.pause();
-          hideSnapshot();
+          hideAfterSeek();
         });
       }
     }
@@ -1103,8 +1109,8 @@ function loadAndFreeze(fromIdx) {
     hideSnapshot();
   }
 
-  // Safety: hide snapshot after 2s max (in case events don't fire)
-  setTimeout(hideSnapshot, 2000);
+  // Safety: hide snapshot after 3s max (in case events don't fire)
+  setTimeout(hideSnapshot, 3000);
 }
 
 /* ═══════════════════════════════════════════════════════
