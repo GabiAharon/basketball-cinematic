@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBA Stars — Cinematic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary:   #3a1462;
+      --secondary: #FDB927;
+    }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      user-select: none;
+    }
+
+    /* ── SCENE CONTAINER ── */
+    #scene {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── MAIN BACKGROUND VIDEO (frozen on first frame, plays on navigate) ── */
+    #bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    /* ── BOKEH CANVAS (behind video, visible when no video loaded) ── */
+    #bokeh-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* ── OVERLAYS ── */
+    .bg-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(to right,  rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.55) 100%),
+        linear-gradient(to top,    rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.08) 45%, rgba(0,0,0,0.35) 100%);
+      pointer-events: none;
+    }
+
+    /* ── CONTENT ── */
+    #content {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(32px, 5vw, 72px) clamp(32px, 6vw, 100px);
+      will-change: transform, opacity;
+    }
+
+    .player-number-bg {
+      position: absolute;
+      right: 3%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(200px, 38vw, 580px);
+      color: rgba(255,255,255,0.045);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -0.02em;
+    }
+
+    .team-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 40px;
+      padding: 7px 20px 7px 7px;
+      margin-bottom: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .team-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--secondary);
+      flex-shrink: 0;
+      transition: background 0.6s ease;
+    }
+
+    .player-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 9vw, 130px);
+      line-height: 0.92;
+      letter-spacing: 0.015em;
+      margin-bottom: 18px;
+      text-shadow: 0 8px 60px rgba(0,0,0,0.6);
+    }
+
+    .accent-line {
+      width: 56px;
+      height: 3px;
+      background: var(--secondary);
+      border-radius: 2px;
+      margin-bottom: 18px;
+      transition: background 0.6s ease;
+    }
+
+    .player-position {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── TOP BAR ── */
+    .site-logo {
+      position: absolute;
+      top: clamp(28px,4vw,52px);
+      left: clamp(32px,6vw,100px);
+      z-index: 20;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .player-counter {
+      position: absolute;
+      top: clamp(28px,4vw,52px);
+      right: clamp(32px,6vw,100px);
+      z-index: 20;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.4);
+    }
+    .player-counter strong { color: #fff; font-weight: 700; }
+
+    /* ── NAVIGATION ── */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      transition: background 0.25s, border-color 0.25s, scale 0.2s;
+    }
+    .nav-arrow:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); scale: 1.08; }
+    .nav-arrow:active { scale: 0.96; }
+    .nav-arrow.prev { left: 32px; }
+    .nav-arrow.next { right: 32px; }
+    .nav-arrow svg { width: 18px; height: 18px; stroke: rgba(255,255,255,0.85); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── DOTS ── */
+    #dots {
+      position: absolute;
+      bottom: 38px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .dot.active { background: var(--secondary); width: 28px; border-radius: 3px; }
+
+    /* ── PROGRESS LINE ── */
+    #progress-track {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 20;
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+    }
+    #progress-fill {
+      height: 100%;
+      background: var(--secondary);
+      transition: width 0.7s cubic-bezier(0.4,0,0.2,1), background 0.6s ease;
+    }
+
+    .hint {
+      position: absolute;
+      bottom: 58px;
+      right: clamp(32px,6vw,100px);
+      z-index: 20;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.18);
+      text-transform: uppercase;
+    }
+
+    /* ── PLAYING INDICATOR ── */
+    #transition-indicator {
+      position: absolute;
+      bottom: 58px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      display: none;
+      gap: 5px;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+    #transition-indicator.active { display: flex; }
+    .pulse-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--secondary);
+      animation: pulse 1s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.4; transform: scale(0.7); }
+    }
+  </style>
+</head>
+<body>
+<div id="scene">
+
+  <!-- Bokeh background (fallback behind video) -->
+  <canvas id="bokeh-canvas"></canvas>
+
+  <!-- ═══ MAIN VIDEO — frozen on first frame, plays on click ═══ -->
+  <video id="bg-video" src="videos/labron dani 1.mp4" muted playsinline preload="auto"></video>
+
+  <!-- Dark overlay -->
+  <div class="bg-overlay"></div>
+
+  <!-- Logo -->
+  <div class="site-logo">NBA Stars</div>
+
+  <!-- Counter -->
+  <div class="player-counter" id="player-counter"><strong>01</strong> / 03</div>
+
+  <!-- Main content -->
+  <div id="content">
+    <div class="player-number-bg" id="player-number-bg">23</div>
+    <div class="player-info">
+      <div class="team-badge">
+        <div class="team-dot" id="team-dot"></div>
+        <span id="team-name">Los Angeles Lakers</span>
+      </div>
+      <div class="player-name" id="player-name">LeBron<br>James</div>
+      <div class="accent-line" id="accent-line"></div>
+      <div class="player-position" id="player-position">Small Forward</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-arrow prev" id="prev-btn"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+  <div class="nav-arrow next" id="next-btn"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+
+  <!-- Dots -->
+  <div id="dots"></div>
+
+  <!-- Playing indicator -->
+  <div id="transition-indicator">
+    <div class="pulse-dot"></div>
+    <span>transitioning</span>
+  </div>
+
+  <!-- Hint -->
+  <div class="hint">&larr; &rarr; to navigate</div>
+
+  <!-- Progress line -->
+  <div id="progress-track"><div id="progress-fill"></div></div>
+
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   PLAYERS DATA
+═══════════════════════════════════════════════════════ */
+const players = [
+  {
+    nameHTML: "LeBron<br>James",
+    team:     "Los Angeles Lakers",
+    number:   "23",
+    position: "Small Forward",
+    primary:  "#3a1462",
+    secondary:"#FDB927",
+  },
+  {
+    nameHTML: "Deni<br>Avdija",
+    team:     "Portland Trail Blazers",
+    number:   "8",
+    position: "Small Forward",
+    primary:  "#5a0a0a",
+    secondary:"#E03A3E",
+  },
+  {
+    nameHTML: "Stephen<br>Curry",
+    team:     "Golden State Warriors",
+    number:   "30",
+    position: "Point Guard",
+    primary:  "#0d2b6b",
+    secondary:"#FFC72C",
+  }
+];
+
+/* ═══════════════════════════════════════════════════════
+   TRANSITION VIDEOS
+   ─ Each video's FIRST FRAME = "poster" for the current player
+   ─ Each video's LAST FRAME  = leads into the next player
+   ─ Key format: "FROM-TO"
+═══════════════════════════════════════════════════════ */
+const transitions = {
+  "0-1": "videos/labron dani 1.mp4",            // LeBron → Deni (forward)
+  "1-0": "videos/labron dani 1 reverse.mp4",    // Deni → LeBron (reverse)
+  "1-2": "videos/dani steff 1.mp4",             // Deni → Curry (forward)
+  "2-1": "videos/dani steff reverse.mp4",       // Curry → Deni (reverse)
+  // "2-0": "videos/curry-to-lebron.mp4",
+  // "0-2": "videos/lebron-to-curry-reverse.mp4",
+};
+
+/* ── STATE ── */
+let current = 0;
+let isPlaying = false;
+
+/* ── BOKEH COLOR STATE (must be before setColors is called) ── */
+let primaryRGB   = hexToRgb(players[0].primary);
+let secondaryRGB = hexToRgb(players[0].secondary);
+let targetPrimary   = { ...primaryRGB };
+let targetSecondary = { ...secondaryRGB };
+
+function hexToRgb(hex) {
+  return { r: parseInt(hex.slice(1,3),16), g: parseInt(hex.slice(3,5),16), b: parseInt(hex.slice(5,7),16) };
+}
+function updateBokehColors(p, s) { targetPrimary = hexToRgb(p); targetSecondary = hexToRgb(s); }
+function lerp(a,b,t) { return a+(b-a)*t; }
+function lerpColor(c,t,sp=0.018) { return { r:lerp(c.r,t.r,sp), g:lerp(c.g,t.g,sp), b:lerp(c.b,t.b,sp) }; }
+
+/* ── DOM ── */
+const bgVideo       = document.getElementById('bg-video');
+const content        = document.getElementById('content');
+const playerNumBg    = document.getElementById('player-number-bg');
+const teamDot        = document.getElementById('team-dot');
+const teamNameEl     = document.getElementById('team-name');
+const playerNameEl   = document.getElementById('player-name');
+const playerPosEl    = document.getElementById('player-position');
+const accentLine     = document.getElementById('accent-line');
+const dotsWrap       = document.getElementById('dots');
+const progressFill   = document.getElementById('progress-fill');
+const playerCounter  = document.getElementById('player-counter');
+const transitionIndicator = document.getElementById('transition-indicator');
+
+/* ── BUILD DOTS ── */
+players.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => goTo(i));
+  dotsWrap.appendChild(d);
+});
+
+/* ── COLOR SYSTEM ── */
+function setColors(p) {
+  document.documentElement.style.setProperty('--primary',   p.primary);
+  document.documentElement.style.setProperty('--secondary', p.secondary);
+  teamDot.style.background      = p.secondary;
+  accentLine.style.background   = p.secondary;
+  progressFill.style.background = p.secondary;
+  updateBokehColors(p.primary, p.secondary);
+}
+
+function updateContent(p, idx) {
+  playerNumBg.textContent  = p.number;
+  teamNameEl.textContent   = p.team;
+  playerNameEl.innerHTML   = p.nameHTML;
+  playerPosEl.textContent  = p.position;
+  playerCounter.innerHTML  = `<strong>${String(idx+1).padStart(2,'0')}</strong> / ${String(players.length).padStart(2,'0')}`;
+}
+
+function updateDots(idx) {
+  document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i===idx));
+}
+
+function updateProgress(idx) {
+  progressFill.style.width = ((idx+1) / players.length * 100) + '%';
+}
+
+/* ═══════════════════════════════════════════════════════
+   LOAD VIDEO & FREEZE ON FIRST FRAME
+   ─ Loads transition video for current player
+   ─ Pauses at frame 0 so first frame = static background
+═══════════════════════════════════════════════════════ */
+function loadAndFreeze(fromIdx) {
+  // Find the "forward" transition FROM this player
+  const nextIdx = (fromIdx + 1) % players.length;
+  const key = `${fromIdx}-${nextIdx}`;
+  const src = transitions[key];
+
+  if (src) {
+    bgVideo.src = src;
+    bgVideo.load();
+    bgVideo.onloadeddata = () => {
+      bgVideo.currentTime = 0;
+      bgVideo.pause();
+    };
+  } else {
+    // No video for this player — clear video, show bokeh only
+    bgVideo.removeAttribute('src');
+    bgVideo.load();
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   NAVIGATION
+   ─ Click right → play video → on end → swap to next player, freeze
+   ─ Click left  → GSAP fallback (or reverse video if available)
+═══════════════════════════════════════════════════════ */
+function goTo(nextIdx) {
+  if (isPlaying || nextIdx === current) return;
+
+  const key = `${current}-${nextIdx}`;
+  const src = transitions[key];
+
+  if (src) {
+    playTransition(nextIdx);
+  } else {
+    playFallback(nextIdx);
+  }
+}
+
+/* Play transition video → on end, swap to next player immediately */
+function playTransition(nextIdx) {
+  isPlaying = true;
+  transitionIndicator.classList.add('active');
+
+  const key = `${current}-${nextIdx}`;
+  const src = transitions[key];
+
+  // Fade out the text content immediately
+  gsap.killTweensOf(content);
+  content.style.opacity = '0';
+
+  // Load the correct transition video for this direction
+  bgVideo.src = src;
+  bgVideo.load();
+
+  function startPlayback() {
+    bgVideo.currentTime = 0;
+    const playPromise = bgVideo.play();
+
+    if (playPromise) {
+      playPromise.then(() => {
+        // Video is playing — poll for end + show info 2s early
+        pollForEnd(nextIdx);
+        showPlayerInfoEarly(nextIdx);
+      }).catch(() => {
+        // Autoplay blocked — just swap immediately
+        finishTransition(nextIdx);
+      });
+    }
+  }
+
+  if (bgVideo.readyState >= 3) {
+    startPlayback();
+  } else {
+    bgVideo.addEventListener('canplay', function handler() {
+      bgVideo.removeEventListener('canplay', handler);
+      startPlayback();
+    });
+  }
+}
+
+/* Poll every 100ms to detect video end (+ stall detection) */
+function pollForEnd(nextIdx) {
+  let lastTime = -1;
+  let stallCount = 0;
+  const poll = setInterval(() => {
+    if (bgVideo.ended || (bgVideo.duration > 0 && bgVideo.currentTime >= bgVideo.duration - 0.1)) {
+      clearInterval(poll);
+      bgVideo.pause();
+      onVideoFullyEnded();
+      return;
+    }
+    // Stall detection: if video paused or time not advancing for 2s, finish
+    if (bgVideo.paused || bgVideo.currentTime === lastTime) {
+      stallCount++;
+      if (stallCount >= 20) { // 20 * 100ms = 2 seconds stalled
+        clearInterval(poll);
+        bgVideo.pause();
+        onVideoFullyEnded();
+        return;
+      }
+    } else {
+      stallCount = 0;
+    }
+    lastTime = bgVideo.currentTime;
+  }, 100);
+}
+
+/* Show player info early (2 seconds before video ends) */
+function showPlayerInfoEarly(nextIdx) {
+  if (bgVideo.duration <= 0) return;
+
+  const earlyTime = Math.max(0, (bgVideo.duration - 2) * 1000);
+
+  setTimeout(() => {
+    if (!isPlaying) return; // Already finished
+
+    // Swap data
+    current = nextIdx;
+    updateContent(players[current], current);
+    setColors(players[current]);
+    updateDots(current);
+    updateProgress(current);
+
+    // Animate text in with GSAP
+    gsap.killTweensOf(content);
+    gsap.fromTo(content,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }
+    );
+    gsap.fromTo('#player-name',
+      { opacity: 0, x: -30 },
+      { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out', delay: 0.1 }
+    );
+    gsap.fromTo('.team-badge',
+      { opacity: 0, scale: 0.9 },
+      { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(1.4)', delay: 0.2 }
+    );
+    gsap.fromTo('.accent-line',
+      { width: 0 },
+      { width: 56, duration: 0.5, ease: 'power2.out', delay: 0.25 }
+    );
+    gsap.fromTo('.player-position',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.4, delay: 0.35 }
+    );
+  }, earlyTime);
+}
+
+/* Called when video fully ends (just cleanup, info already shown) */
+function onVideoFullyEnded() {
+  transitionIndicator.classList.remove('active');
+  isPlaying = false;
+}
+
+/* Legacy fallback: show info immediately if video is very short */
+function finishTransition(nextIdx) {
+  if (!isPlaying) return;
+
+  current = nextIdx;
+  updateContent(players[current], current);
+  setColors(players[current]);
+  updateDots(current);
+  updateProgress(current);
+
+  gsap.killTweensOf(content);
+  transitionIndicator.classList.remove('active');
+  isPlaying = false;
+  content.style.opacity = '1';
+}
+
+/* Fallback: GSAP slide animation (no video available) */
+function playFallback(nextIdx) {
+  isPlaying = true;
+  const dir  = nextIdx > current ? 1 : -1;
+  const outX = dir === 1 ? -110 : 110;
+  const inX  = dir === 1 ?  110 : -110;
+
+  const tl = gsap.timeline({
+    onComplete: () => { isPlaying = false; }
+  });
+
+  tl.to(content, { x: outX, opacity: 0, duration: 0.38, ease: 'power2.in' });
+  tl.call(() => {
+    current = nextIdx;
+    updateContent(players[current], current);
+    setColors(players[current]);
+    updateDots(current);
+    updateProgress(current);
+    loadAndFreeze(current);
+    gsap.set(content, { x: inX });
+  });
+  tl.to(content, { x: 0, opacity: 1, duration: 0.55, ease: 'power3.out' });
+  tl.fromTo(playerNumBg,
+    { scale: 0.92, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.6, ease: 'power2.out' }, '<0.1'
+  );
+}
+
+/* ── CONTROLS ── */
+document.getElementById('next-btn').addEventListener('click', () => goTo((current + 1) % players.length));
+document.getElementById('prev-btn').addEventListener('click', () => goTo((current - 1 + players.length) % players.length));
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') goTo((current + 1) % players.length);
+  if (e.key === 'ArrowLeft')  goTo((current - 1 + players.length) % players.length);
+});
+
+let touchX = 0;
+document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+document.addEventListener('touchend',   e => {
+  const d = touchX - e.changedTouches[0].clientX;
+  if (Math.abs(d) > 50) d > 0
+    ? goTo((current + 1) % players.length)
+    : goTo((current - 1 + players.length) % players.length);
+});
+
+/* ── INIT ── */
+setColors(players[0]);
+updateContent(players[0], 0);
+updateProgress(0);
+gsap.set(content, { x: 0, opacity: 1 });
+
+// Freeze first video on frame 0 (src already set in HTML)
+bgVideo.pause();
+bgVideo.currentTime = 0;
+
+/* ═══════════════════════════════════════════════════════
+   BOKEH CANVAS (behind video)
+═══════════════════════════════════════════════════════ */
+const canvas = document.getElementById('bokeh-canvas');
+const ctx    = canvas.getContext('2d');
+let W, H;
+
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+
+const orbs = [
+  { x:0.75, y:0.25, r:0.55, vx: 0.00018, vy: 0.00012, type:'primary',   alpha:0.55 },
+  { x:0.25, y:0.70, r:0.40, vx:-0.00010, vy:-0.00015, type:'secondary', alpha:0.28 },
+  { x:0.50, y:0.15, r:0.30, vx: 0.00022, vy: 0.00008, type:'primary',   alpha:0.20 },
+  { x:0.80, y:0.80, r:0.25, vx:-0.00014, vy: 0.00018, type:'secondary', alpha:0.22 },
+];
+
+function drawFrame() {
+  primaryRGB   = lerpColor(primaryRGB,   targetPrimary);
+  secondaryRGB = lerpColor(secondaryRGB, targetSecondary);
+
+  ctx.fillStyle = '#030303';
+  ctx.fillRect(0, 0, W, H);
+
+  orbs.forEach(o => {
+    o.x += o.vx; o.y += o.vy;
+    if (o.x < -0.1 || o.x > 1.1) o.vx *= -1;
+    if (o.y < -0.1 || o.y > 1.1) o.vy *= -1;
+
+    const c  = o.type === 'primary' ? primaryRGB : secondaryRGB;
+    const cx = o.x * W, cy = o.y * H, rad = o.r * Math.min(W,H);
+    const g  = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+    g.addColorStop(0,   `rgba(${c.r},${c.g},${c.b},${o.alpha})`);
+    g.addColorStop(0.5, `rgba(${c.r},${c.g},${c.b},${o.alpha*0.3})`);
+    g.addColorStop(1,   `rgba(${c.r},${c.g},${c.b},0)`);
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(cx,cy,rad,0,Math.PI*2); ctx.fill();
+  });
+
+  requestAnimationFrame(drawFrame);
+}
+drawFrame();
+</script>
+</body>
+</html>
