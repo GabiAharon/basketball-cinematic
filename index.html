@@ -1544,15 +1544,19 @@ function renderStats(playerIdx) {
     const mu = parseMatchup(lg.matchup);
     const oppAbbr = mu.team2;
     const isWin = lg.result === 'W';
-    // Build score display
+    // Build score display — match pts to the correct team logo order
     const sc = lg.score;
     let scoreHtml = '';
     if (sc && sc.team1_abbr) {
+      // mu.team1 = player's team (left logo), mu.team2 = opponent (right logo)
+      // sc data may be in different order — map by abbreviation
+      const leftPts  = sc.team1_abbr === mu.team1 ? sc.team1_pts : sc.team2_pts;
+      const rightPts = sc.team1_abbr === mu.team1 ? sc.team2_pts : sc.team1_pts;
       scoreHtml = `
         <div class="lg-score-block">
-          <span class="lg-score-num ${sc.team1_pts > sc.team2_pts ? 'winner' : ''}">${sc.team1_pts}</span>
+          <span class="lg-score-num ${leftPts > rightPts ? 'winner' : ''}">${leftPts}</span>
           <span class="lg-score-dash">—</span>
-          <span class="lg-score-num ${sc.team2_pts > sc.team1_pts ? 'winner' : ''}">${sc.team2_pts}</span>
+          <span class="lg-score-num ${rightPts > leftPts ? 'winner' : ''}">${rightPts}</span>
         </div>`;
     }
 
