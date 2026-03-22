@@ -1150,8 +1150,9 @@ function playTransition(nextIdx) {
   gsap.killTweensOf(content);
   content.style.opacity = '0';
 
-  // Cancel any pending freeze-seek from loadAndFreeze (prevents stale pause)
+  // Cancel ALL stale handlers from loadAndFreeze (prevents ghost pause)
   cancelPendingFreeze();
+  bgVideo.onloadeddata = null;
 
   // Snapshot current frame, then load the transition video
   showSnapshot();
