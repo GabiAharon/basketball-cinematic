@@ -1,0 +1,42 @@
+name: Daily Stats Update
+
+on:
+  schedule:
+    # Every day at 06:00 UTC (08:00 Israel time)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Allow manual trigger from GitHub UI
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch latest stats
+        run: python fetch_stats.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet stats.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated stats
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add stats.json
+          git commit -m "chore: auto-update stats.json [$(date '+%Y-%m-%d')]"
+          git push

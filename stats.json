@@ -1,0 +1,323 @@
+{
+  "last_updated": "2026-03-22T18:31:59.040212",
+  "players": {
+    "LeBron James": {
+      "name": "LeBron James",
+      "player_id": 2544,
+      "bio": {
+        "height": "6-9",
+        "weight": "250",
+        "birthdate": "1984-12-30",
+        "country": "USA",
+        "draft_year": "2003",
+        "draft_round": "1",
+        "draft_number": "1",
+        "years_pro": 22
+      },
+      "current_season": {
+        "season": "2025-26",
+        "team": "LAL",
+        "gp": 50,
+        "ppg": 21.1,
+        "rpg": 5.8,
+        "apg": 6.8,
+        "spg": 1.2,
+        "bpg": 0.6,
+        "fg_pct": 51.4,
+        "fg3_pct": 31.5,
+        "ft_pct": 74.0,
+        "total_pts": 1057,
+        "total_reb": 292,
+        "total_ast": 341
+      },
+      "career": {
+        "gp": 1612,
+        "total_pts": 43241,
+        "total_reb": 12023,
+        "total_ast": 11925,
+        "total_stl": 2403,
+        "total_blk": 1180,
+        "ppg": 26.8,
+        "rpg": 7.5,
+        "apg": 7.4,
+        "fg_pct": 50.7,
+        "seasons": 23,
+        "best_season_pts": 2478,
+        "best_season_reb": 709,
+        "best_season_ast": 747
+      },
+      "last_game": {
+        "date": "Mar 21, 2026",
+        "matchup": "LAL @ ORL",
+        "result": "W",
+        "pts": 12,
+        "reb": 6,
+        "ast": 4,
+        "stl": 3,
+        "blk": 0,
+        "fg_pct": 38.5,
+        "min": 34,
+        "score": {
+          "team1_abbr": "ORL",
+          "team1_pts": 104,
+          "team2_abbr": "LAL",
+          "team2_pts": 105
+        }
+      },
+      "season_history": [
+        {
+          "season": "2021-22",
+          "team": "LAL",
+          "gp": 56,
+          "ppg": 30.3,
+          "rpg": 8.2,
+          "apg": 6.2
+        },
+        {
+          "season": "2022-23",
+          "team": "LAL",
+          "gp": 55,
+          "ppg": 28.9,
+          "rpg": 8.3,
+          "apg": 6.8
+        },
+        {
+          "season": "2023-24",
+          "team": "LAL",
+          "gp": 71,
+          "ppg": 25.7,
+          "rpg": 7.3,
+          "apg": 8.3
+        },
+        {
+          "season": "2024-25",
+          "team": "LAL",
+          "gp": 70,
+          "ppg": 24.4,
+          "rpg": 7.8,
+          "apg": 8.2
+        },
+        {
+          "season": "2025-26",
+          "team": "LAL",
+          "gp": 50,
+          "ppg": 21.1,
+          "rpg": 5.8,
+          "apg": 6.8
+        }
+      ]
+    },
+    "Deni Avdija": {
+      "name": "Deni Avdija",
+      "player_id": 1630166,
+      "bio": {
+        "height": "6-8",
+        "weight": "228",
+        "birthdate": "2001-01-03",
+        "country": "Israel",
+        "draft_year": "2020",
+        "draft_round": "1",
+        "draft_number": "9",
+        "years_pro": 5
+      },
+      "current_season": {
+        "season": "2025-26",
+        "team": "POR",
+        "gp": 55,
+        "ppg": 24.2,
+        "rpg": 7.0,
+        "apg": 6.6,
+        "spg": 0.8,
+        "bpg": 0.6,
+        "fg_pct": 45.8,
+        "fg3_pct": 32.6,
+        "ft_pct": 80.4,
+        "total_pts": 1330,
+        "total_reb": 384,
+        "total_ast": 365
+      },
+      "career": {
+        "gp": 414,
+        "total_pts": 5375,
+        "total_reb": 2620,
+        "total_ast": 1373,
+        "total_stl": 330,
+        "total_blk": 194,
+        "ppg": 13.0,
+        "rpg": 6.3,
+        "apg": 3.3,
+        "fg_pct": 46.1,
+        "seasons": 6,
+        "best_season_pts": 1330,
+        "best_season_reb": 540,
+        "best_season_ast": 365
+      },
+      "last_game": {
+        "date": "Mar 20, 2026",
+        "matchup": "POR @ MIN",
+        "result": "W",
+        "pts": 25,
+        "reb": 8,
+        "ast": 5,
+        "stl": 0,
+        "blk": 0,
+        "fg_pct": 38.9,
+        "min": 36,
+        "score": {
+          "team1_abbr": "MIN",
+          "team1_pts": 104,
+          "team2_abbr": "POR",
+          "team2_pts": 108
+        }
+      },
+      "season_history": [
+        {
+          "season": "2021-22",
+          "team": "WAS",
+          "gp": 82,
+          "ppg": 8.4,
+          "rpg": 5.2,
+          "apg": 2.0
+        },
+        {
+          "season": "2022-23",
+          "team": "WAS",
+          "gp": 76,
+          "ppg": 9.2,
+          "rpg": 6.4,
+          "apg": 2.8
+        },
+        {
+          "season": "2023-24",
+          "team": "WAS",
+          "gp": 75,
+          "ppg": 14.7,
+          "rpg": 7.2,
+          "apg": 3.8
+        },
+        {
+          "season": "2024-25",
+          "team": "POR",
+          "gp": 72,
+          "ppg": 16.9,
+          "rpg": 7.2,
+          "apg": 3.9
+        },
+        {
+          "season": "2025-26",
+          "team": "POR",
+          "gp": 55,
+          "ppg": 24.2,
+          "rpg": 7.0,
+          "apg": 6.6
+        }
+      ]
+    },
+    "Stephen Curry": {
+      "name": "Stephen Curry",
+      "player_id": 201939,
+      "bio": {
+        "height": "6-2",
+        "weight": "185",
+        "birthdate": "1988-03-14",
+        "country": "USA",
+        "draft_year": "2009",
+        "draft_round": "1",
+        "draft_number": "7",
+        "years_pro": 16
+      },
+      "current_season": {
+        "season": "2025-26",
+        "team": "GSW",
+        "gp": 39,
+        "ppg": 27.2,
+        "rpg": 3.5,
+        "apg": 4.8,
+        "spg": 1.1,
+        "bpg": 0.4,
+        "fg_pct": 46.8,
+        "fg3_pct": 39.1,
+        "ft_pct": 93.1,
+        "total_pts": 1061,
+        "total_reb": 138,
+        "total_ast": 189
+      },
+      "career": {
+        "gp": 1065,
+        "total_pts": 26447,
+        "total_reb": 4957,
+        "total_ast": 6729,
+        "total_stl": 1597,
+        "total_blk": 281,
+        "ppg": 24.8,
+        "rpg": 4.7,
+        "apg": 6.3,
+        "fg_pct": 47.1,
+        "seasons": 17,
+        "best_season_pts": 2375,
+        "best_season_reb": 430,
+        "best_season_ast": 666
+      },
+      "last_game": {
+        "date": "Jan 30, 2026",
+        "matchup": "GSW vs. DET",
+        "result": "L",
+        "pts": 23,
+        "reb": 1,
+        "ast": 2,
+        "stl": 0,
+        "blk": 1,
+        "fg_pct": 43.8,
+        "min": 25,
+        "score": {
+          "team1_abbr": "DET",
+          "team1_pts": 131,
+          "team2_abbr": "GSW",
+          "team2_pts": 124
+        }
+      },
+      "season_history": [
+        {
+          "season": "2021-22",
+          "team": "GSW",
+          "gp": 64,
+          "ppg": 25.5,
+          "rpg": 5.2,
+          "apg": 6.3
+        },
+        {
+          "season": "2022-23",
+          "team": "GSW",
+          "gp": 56,
+          "ppg": 29.4,
+          "rpg": 6.1,
+          "apg": 6.3
+        },
+        {
+          "season": "2023-24",
+          "team": "GSW",
+          "gp": 74,
+          "ppg": 26.4,
+          "rpg": 4.5,
+          "apg": 5.1
+        },
+        {
+          "season": "2024-25",
+          "team": "GSW",
+          "gp": 70,
+          "ppg": 24.5,
+          "rpg": 4.4,
+          "apg": 6.0
+        },
+        {
+          "season": "2025-26",
+          "team": "GSW",
+          "gp": 39,
+          "ppg": 27.2,
+          "rpg": 3.5,
+          "apg": 4.8
+        }
+      ]
+    }
+  }
+}
