@@ -1073,12 +1073,18 @@ function loadAndFreeze(fromIdx) {
   const reverseKey = `${prevIdx}-${fromIdx}`;
 
   // Helper: hide snapshot only AFTER seek completes (prevents frame flash)
+  // Use a named handler so we can remove it if a new transition starts
+  function _freezeSeeked() {
+    bgVideo.removeEventListener('seeked', _freezeSeeked);
+    bgVideo.pause();
+    hideSnapshot();
+  }
   function hideAfterSeek() {
-    bgVideo.addEventListener('seeked', function onSeeked() {
-      bgVideo.removeEventListener('seeked', onSeeked);
-      bgVideo.pause();
-      hideSnapshot();
-    });
+    bgVideo.removeEventListener('seeked', _freezeSeeked); // remove any stale one
+    bgVideo.addEventListener('seeked', _freezeSeeked);
+  }
+  function cancelPendingFreeze() {
+    bgVideo.removeEventListener('seeked', _freezeSeeked);
   }
 
   if (transitions[forwardKey]) {
@@ -1142,6 +1148,9 @@ function playTransition(nextIdx) {
   // Fade out the text content immediately
   gsap.killTweensOf(content);
   content.style.opacity = '0';
+
+  // Cancel any pending freeze-seek from loadAndFreeze (prevents stale pause)
+  cancelPendingFreeze();
 
   // Snapshot current frame, then load the transition video
   showSnapshot();
