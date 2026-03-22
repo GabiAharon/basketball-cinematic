@@ -35,6 +35,18 @@
     }
 
     /* ── MAIN BACKGROUND VIDEO (frozen on first frame, plays on navigate) ── */
+    #snap-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0;
+    }
+    #snap-canvas.visible { opacity: 1; }
+
     #bg-video {
       position: absolute;
       inset: 0;
@@ -789,6 +801,9 @@
   <!-- Bokeh background (fallback behind video) -->
   <canvas id="bokeh-canvas"></canvas>
 
+  <!-- ═══ SNAPSHOT CANVAS — holds current frame during video src swap ═══ -->
+  <canvas id="snap-canvas"></canvas>
+
   <!-- ═══ MAIN VIDEO — frozen on first frame, plays on click ═══ -->
   <video id="bg-video" src="videos/labron dani 1.mp4" poster="posters/lebron.jpg" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
 
@@ -1026,47 +1041,70 @@ function updateProgress(idx) {
    ─ Loads transition video for current player
    ─ Pauses at frame 0 so first frame = static background
 ═══════════════════════════════════════════════════════ */
+/* Snapshot: capture current video frame to canvas to prevent flash during src swap */
+const snapCanvas = document.getElementById('snap-canvas');
+const snapCtx = snapCanvas.getContext('2d');
+
+function showSnapshot() {
+  try {
+    if (bgVideo.readyState >= 2 && bgVideo.videoWidth > 0) {
+      snapCanvas.width  = bgVideo.videoWidth;
+      snapCanvas.height = bgVideo.videoHeight;
+      snapCtx.drawImage(bgVideo, 0, 0);
+      snapCanvas.classList.add('visible');
+    }
+  } catch(e) { /* ignore */ }
+}
+function hideSnapshot() {
+  snapCanvas.classList.remove('visible');
+}
+
 function loadAndFreeze(fromIdx) {
-  // Update poster so mobile always sees the current player even if video can't seek
+  // Update poster for mobile fallback (only matters on initial load / if video never loads)
   bgVideo.setAttribute('poster', players[fromIdx].poster);
 
+  // Capture current frame as snapshot BEFORE changing src (prevents flash)
+  showSnapshot();
+
   // Try to find ANY transition video that starts or ends at this player
-  // Priority: forward transition first, then reverse (freeze on last frame)
   const nextIdx = (fromIdx + 1) % players.length;
   const forwardKey = `${fromIdx}-${nextIdx}`;
   const prevIdx = (fromIdx - 1 + players.length) % players.length;
   const reverseKey = `${prevIdx}-${fromIdx}`;
 
   if (transitions[forwardKey]) {
-    // Freeze on first frame of the forward transition
     bgVideo.src = transitions[forwardKey];
     bgVideo.load();
     bgVideo.onloadeddata = () => {
       bgVideo.currentTime = 0;
       bgVideo.pause();
+      hideSnapshot(); // New frame ready — hide snapshot
     };
   } else if (transitions[reverseKey]) {
-    // No forward video — freeze on LAST frame of the incoming transition
-    // (this is the video that brought us here, freeze at the end = current player's portrait)
     bgVideo.src = transitions[reverseKey];
     bgVideo.load();
     function seekToEnd() {
       if (bgVideo.duration && isFinite(bgVideo.duration) && bgVideo.duration > 0) {
         bgVideo.currentTime = bgVideo.duration - 0.05;
         bgVideo.pause();
+        hideSnapshot();
       } else {
         bgVideo.addEventListener('loadedmetadata', function h() {
           bgVideo.removeEventListener('loadedmetadata', h);
           bgVideo.currentTime = bgVideo.duration - 0.05;
           bgVideo.pause();
+          hideSnapshot();
         });
       }
     }
     bgVideo.onloadeddata = seekToEnd;
   } else {
-    // No video at all — just keep whatever is showing
     bgVideo.pause();
+    hideSnapshot();
   }
+
+  // Safety: hide snapshot after 2s max (in case events don't fire)
+  setTimeout(hideSnapshot, 2000);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1099,7 +1137,8 @@ function playTransition(nextIdx) {
   gsap.killTweensOf(content);
   content.style.opacity = '0';
 
-  // Load the correct transition video for this direction
+  // Snapshot current frame, then load the transition video
+  showSnapshot();
   bgVideo.pause();
   bgVideo.currentTime = 0;
   bgVideo.src = src;
@@ -1120,7 +1159,8 @@ function playTransition(nextIdx) {
 
     if (playPromise) {
       playPromise.then(() => {
-        // Video is playing — poll for end + show info 2s early
+        // Video is playing — hide snapshot and poll for end
+        hideSnapshot();
         pollForEnd(nextIdx);
         showPlayerInfoEarly(nextIdx);
       }).catch((err) => {
