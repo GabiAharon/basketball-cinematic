@@ -144,10 +144,57 @@
       top: clamp(28px,4vw,52px);
       left: clamp(32px,6vw,100px);
       z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .site-logo .logo-icon {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.65);
+      font-size: 16px;
+      color: var(--secondary);
+      letter-spacing: 0;
+      box-shadow: 0 0 18px rgba(253, 185, 39, 0.25);
+      flex-shrink: 0;
+    }
+    .site-logo .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .site-logo .logo-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.9);
+      line-height: 1;
+    }
+    .site-logo .logo-title span {
+      color: var(--secondary);
+    }
+    .site-logo .logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .site-logo .logo-sub:hover {
+      color: var(--secondary);
+    }
+    .logo-divider {
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(to bottom, transparent, var(--secondary), transparent);
+      opacity: 0.4;
     }
 
     .player-counter {
@@ -743,13 +790,20 @@
   <canvas id="bokeh-canvas"></canvas>
 
   <!-- ═══ MAIN VIDEO — frozen on first frame, plays on click ═══ -->
-  <video id="bg-video" src="videos/labron dani 1.mp4" poster="https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
+  <video id="bg-video" src="videos/labron dani 1.mp4" poster="posters/lebron.jpg" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
 
   <!-- Dark overlay -->
   <div class="bg-overlay"></div>
 
   <!-- Logo -->
-  <div class="site-logo">NBA Stars</div>
+  <div class="site-logo" id="site-logo">
+    <div class="logo-icon">🏀</div>
+    <div class="logo-divider"></div>
+    <div class="logo-text">
+      <div class="logo-title">COURT<span>SIDE</span> CINEMA</div>
+      <a href="https://www.gabiaharon.com" target="_blank" rel="noopener" class="logo-sub">gabiaharon.com</a>
+    </div>
+  </div>
 
   <!-- Counter -->
   <div class="player-counter" id="player-counter"><strong>01</strong> / 03</div>
@@ -863,6 +917,7 @@ const players = [
     primary:  "#3a1462",
     secondary:"#FDB927",
     nbaId:    2544,
+    poster:   "posters/lebron.jpg",
   },
   {
     nameHTML: "Deni<br>Avdija",
@@ -872,6 +927,7 @@ const players = [
     primary:  "#5a0a0a",
     secondary:"#E03A3E",
     nbaId:    1629029,
+    poster:   "posters/deni.jpg",
   },
   {
     nameHTML: "Stephen<br>Curry",
@@ -881,12 +937,9 @@ const players = [
     primary:  "#0d2b6b",
     secondary:"#FFC72C",
     nbaId:    201939,
+    poster:   "posters/curry.jpg",
   }
 ];
-
-function playerPosterUrl(idx) {
-  return `https://cdn.nba.com/headshots/nba/latest/1040x760/${players[idx].nbaId}.png`;
-}
 
 /* ═══════════════════════════════════════════════════════
    TRANSITION VIDEOS
@@ -975,7 +1028,7 @@ function updateProgress(idx) {
 ═══════════════════════════════════════════════════════ */
 function loadAndFreeze(fromIdx) {
   // Update poster so mobile always sees the current player even if video can't seek
-  bgVideo.setAttribute('poster', playerPosterUrl(fromIdx));
+  bgVideo.setAttribute('poster', players[fromIdx].poster);
 
   // Try to find ANY transition video that starts or ends at this player
   // Priority: forward transition first, then reverse (freeze on last frame)
@@ -1271,6 +1324,26 @@ gsap.set(content, { x: 0, opacity: 1 });
 // Freeze first video on frame 0 (src already set in HTML)
 bgVideo.pause();
 bgVideo.currentTime = 0;
+
+/* ── LOGO ENTRANCE ANIMATION ── */
+const logoEl = document.getElementById('site-logo');
+const logoTl = gsap.timeline({ delay: 0.3 });
+logoTl.fromTo(logoEl.querySelector('.logo-icon'),
+  { scale: 0, rotation: -180, opacity: 0 },
+  { scale: 1, rotation: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.7)' }
+);
+logoTl.fromTo(logoEl.querySelector('.logo-divider'),
+  { scaleY: 0, opacity: 0 },
+  { scaleY: 1, opacity: 0.4, duration: 0.4, ease: 'power2.out' }, '-=0.3'
+);
+logoTl.fromTo(logoEl.querySelector('.logo-title'),
+  { x: -20, opacity: 0 },
+  { x: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }, '-=0.2'
+);
+logoTl.fromTo(logoEl.querySelector('.logo-sub'),
+  { x: -10, opacity: 0 },
+  { x: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.2'
+);
 
 /* ═══════════════════════════════════════════════════════
    BOKEH CANVAS (behind video)
