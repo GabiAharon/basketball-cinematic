@@ -743,7 +743,7 @@
   <canvas id="bokeh-canvas"></canvas>
 
   <!-- ═══ MAIN VIDEO — frozen on first frame, plays on click ═══ -->
-  <video id="bg-video" src="videos/labron dani 1.mp4" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
+  <video id="bg-video" src="videos/labron dani 1.mp4" poster="https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture></video>
 
   <!-- Dark overlay -->
   <div class="bg-overlay"></div>
@@ -862,6 +862,7 @@ const players = [
     position: "Small Forward",
     primary:  "#3a1462",
     secondary:"#FDB927",
+    nbaId:    2544,
   },
   {
     nameHTML: "Deni<br>Avdija",
@@ -870,6 +871,7 @@ const players = [
     position: "Small Forward",
     primary:  "#5a0a0a",
     secondary:"#E03A3E",
+    nbaId:    1629029,
   },
   {
     nameHTML: "Stephen<br>Curry",
@@ -878,8 +880,13 @@ const players = [
     position: "Point Guard",
     primary:  "#0d2b6b",
     secondary:"#FFC72C",
+    nbaId:    201939,
   }
 ];
+
+function playerPosterUrl(idx) {
+  return `https://cdn.nba.com/headshots/nba/latest/1040x760/${players[idx].nbaId}.png`;
+}
 
 /* ═══════════════════════════════════════════════════════
    TRANSITION VIDEOS
@@ -967,6 +974,9 @@ function updateProgress(idx) {
    ─ Pauses at frame 0 so first frame = static background
 ═══════════════════════════════════════════════════════ */
 function loadAndFreeze(fromIdx) {
+  // Update poster so mobile always sees the current player even if video can't seek
+  bgVideo.setAttribute('poster', playerPosterUrl(fromIdx));
+
   // Try to find ANY transition video that starts or ends at this player
   // Priority: forward transition first, then reverse (freeze on last frame)
   const nextIdx = (fromIdx + 1) % players.length;
