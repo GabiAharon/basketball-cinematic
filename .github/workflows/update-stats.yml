@@ -2,8 +2,9 @@ name: Daily Stats Update
 
 on:
   schedule:
-    # Every day at 06:00 UTC (08:00 Israel time)
-    - cron: '0 6 * * *'
+    # Every day at 07:00 UTC (09:00 Israel winter / 10:00 Israel summer)
+    # Catches all NBA games including late West Coast tip-offs
+    - cron: '0 7 * * *'
   workflow_dispatch:
     # Allow manual trigger from GitHub UI
 
