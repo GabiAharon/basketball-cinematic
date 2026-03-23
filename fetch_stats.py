@@ -16,20 +16,34 @@ from nba_api.stats.endpoints import (
     leaguegamelog,
 )
 
+# Custom headers — stats.nba.com blocks cloud server IPs without browser-like headers
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Referer": "https://www.nba.com/",
+    "Origin": "https://www.nba.com",
+    "Connection": "keep-alive",
+    "x-nba-stats-origin": "stats",
+    "x-nba-stats-token": "true",
+}
+
 # Retry wrapper for NBA API calls (stats.nba.com can be flaky from cloud servers)
-MAX_RETRIES = 3
-TIMEOUT = 60  # seconds
+MAX_RETRIES = 4
+TIMEOUT = 90  # seconds
 
 def nba_api_call(fn, *args, **kwargs):
     """Call an NBA API endpoint with retry + exponential backoff."""
     kwargs.setdefault("timeout", TIMEOUT)
+    kwargs.setdefault("headers", HEADERS)
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             return fn(*args, **kwargs)
         except Exception as e:
             if attempt == MAX_RETRIES:
                 raise
-            wait = 5 * attempt + random.uniform(0, 3)
+            wait = 8 * attempt + random.uniform(2, 8)
             print(f"    [retry {attempt}/{MAX_RETRIES}] {type(e).__name__}: {e}")
             print(f"    Waiting {wait:.1f}s before retry...")
             time.sleep(wait)
