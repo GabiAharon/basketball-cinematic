@@ -5,6 +5,7 @@ Output: stats.json (loaded by index.html)
 """
 import json
 import time
+import random
 from datetime import datetime
 
 from nba_api.stats.static import players as nba_players
@@ -14,6 +15,24 @@ from nba_api.stats.endpoints import (
     playergamelog,
     leaguegamelog,
 )
+
+# Retry wrapper for NBA API calls (stats.nba.com can be flaky from cloud servers)
+MAX_RETRIES = 3
+TIMEOUT = 60  # seconds
+
+def nba_api_call(fn, *args, **kwargs):
+    """Call an NBA API endpoint with retry + exponential backoff."""
+    kwargs.setdefault("timeout", TIMEOUT)
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            return fn(*args, **kwargs)
+        except Exception as e:
+            if attempt == MAX_RETRIES:
+                raise
+            wait = 5 * attempt + random.uniform(0, 3)
+            print(f"    [retry {attempt}/{MAX_RETRIES}] {type(e).__name__}: {e}")
+            print(f"    Waiting {wait:.1f}s before retry...")
+            time.sleep(wait)
 
 # Players to fetch (match the showcase)
 PLAYER_NAMES = ["LeBron James", "Deni Avdija", "Stephen Curry"]
@@ -25,7 +44,7 @@ def get_league_games():
     global _all_league_games
     if _all_league_games is None:
         print("  Loading league game log (once)...")
-        lgl = leaguegamelog.LeagueGameLog(season="2025-26")
+        lgl = nba_api_call(leaguegamelog.LeagueGameLog, season="2025-26")
         games = lgl.get_normalized_dict().get("LeagueGameLog", [])
         # Index by game_id for fast lookup
         _all_league_games = {}
@@ -53,19 +72,19 @@ def fetch_player_stats(name):
     time.sleep(1)  # Rate limit
 
     # Career stats
-    career = playercareerstats.PlayerCareerStats(player_id=pid)
+    career = nba_api_call(playercareerstats.PlayerCareerStats, player_id=pid)
     career_data = career.get_normalized_dict()
-    time.sleep(1)
+    time.sleep(2)
 
     # Player info
-    info = commonplayerinfo.CommonPlayerInfo(player_id=pid)
+    info = nba_api_call(commonplayerinfo.CommonPlayerInfo, player_id=pid)
     info_data = info.get_normalized_dict()
-    time.sleep(1)
+    time.sleep(2)
 
     # Last game log
-    gamelog = playergamelog.PlayerGameLog(player_id=pid, season="2025-26")
+    gamelog = nba_api_call(playergamelog.PlayerGameLog, player_id=pid, season="2025-26")
     gamelog_data = gamelog.get_normalized_dict()
-    time.sleep(1)
+    time.sleep(2)
 
     # Extract last game
     games = gamelog_data.get("PlayerGameLog", [])
@@ -186,11 +205,30 @@ def main():
     print(f"NBA Stats Fetcher — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 50)
 
+    # Load existing stats as fallback
+    existing = {}
+    try:
+        with open("stats.json", "r", encoding="utf-8") as f:
+            existing = json.load(f).get("players", {})
+    except Exception:
+        pass
+
     all_stats = {}
     for name in PLAYER_NAMES:
-        data = fetch_player_stats(name)
-        if data:
-            all_stats[name] = data
+        try:
+            data = fetch_player_stats(name)
+            if data:
+                all_stats[name] = data
+        except Exception as e:
+            print(f"  [!] Failed to fetch {name}: {e}")
+            # Keep existing data for this player if available
+            if name in existing:
+                print(f"  [*] Keeping previous data for {name}")
+                all_stats[name] = existing[name]
+
+    if not all_stats:
+        print("\n[!] No data fetched and no fallback available. Keeping old stats.json.")
+        return
 
     output = {
         "last_updated": datetime.now().isoformat(),

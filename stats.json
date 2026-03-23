@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-22T18:31:59.040212",
+  "last_updated": "2026-03-23T10:25:28.659716",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -123,24 +123,24 @@
       "current_season": {
         "season": "2025-26",
         "team": "POR",
-        "gp": 55,
+        "gp": 56,
         "ppg": 24.2,
         "rpg": 7.0,
-        "apg": 6.6,
+        "apg": 6.8,
         "spg": 0.8,
         "bpg": 0.6,
-        "fg_pct": 45.8,
+        "fg_pct": 45.7,
         "fg3_pct": 32.6,
-        "ft_pct": 80.4,
-        "total_pts": 1330,
-        "total_reb": 384,
-        "total_ast": 365
+        "ft_pct": 80.5,
+        "total_pts": 1353,
+        "total_reb": 390,
+        "total_ast": 379
       },
       "career": {
-        "gp": 414,
-        "total_pts": 5375,
-        "total_reb": 2620,
-        "total_ast": 1373,
+        "gp": 415,
+        "total_pts": 5398,
+        "total_reb": 2626,
+        "total_ast": 1387,
         "total_stl": 330,
         "total_blk": 194,
         "ppg": 13.0,
@@ -148,26 +148,26 @@
         "apg": 3.3,
         "fg_pct": 46.1,
         "seasons": 6,
-        "best_season_pts": 1330,
+        "best_season_pts": 1353,
         "best_season_reb": 540,
-        "best_season_ast": 365
+        "best_season_ast": 379
       },
       "last_game": {
-        "date": "Mar 20, 2026",
-        "matchup": "POR @ MIN",
-        "result": "W",
-        "pts": 25,
-        "reb": 8,
-        "ast": 5,
+        "date": "Mar 22, 2026",
+        "matchup": "POR @ DEN",
+        "result": "L",
+        "pts": 23,
+        "reb": 6,
+        "ast": 14,
         "stl": 0,
         "blk": 0,
-        "fg_pct": 38.9,
-        "min": 36,
+        "fg_pct": 41.2,
+        "min": 33,
         "score": {
-          "team1_abbr": "MIN",
-          "team1_pts": 104,
+          "team1_abbr": "DEN",
+          "team1_pts": 128,
           "team2_abbr": "POR",
-          "team2_pts": 108
+          "team2_pts": 112
         }
       },
       "season_history": [
@@ -206,10 +206,10 @@
         {
           "season": "2025-26",
           "team": "POR",
-          "gp": 55,
+          "gp": 56,
           "ppg": 24.2,
           "rpg": 7.0,
-          "apg": 6.6
+          "apg": 6.8
         }
       ]
     },
