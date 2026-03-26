@@ -921,6 +921,28 @@
 
 <script>
 /* ═══════════════════════════════════════════════════════
+   SOURCE PROTECTION
+═══════════════════════════════════════════════════════ */
+// Block DevTools shortcuts & right-click
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+      (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
+    e.preventDefault(); e.stopPropagation(); return false;
+  }
+});
+document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+
+// Debugger trap — triggers an infinite pause loop when DevTools is open
+(function _dt() {
+  const el = new Image();
+  Object.defineProperty(el, 'id', { get: function() {
+    (function loop() { debugger; loop(); })();
+  }});
+  setInterval(function() { console.log('%c', el); }, 2000);
+})();
+
+/* ═══════════════════════════════════════════════════════
    PLAYERS DATA
 ═══════════════════════════════════════════════════════ */
 const players = [
