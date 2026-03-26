@@ -9,3 +9,6 @@ NBA Stats Fetcher — 2026-03-23 10:25
 Saved stats.json (3 players)
 Last updated: 2026-03-23T10:25:28.659716
 [Mon 03/23/2026 10:25:32.84] Stats updated successfully. 
+[Tue 03/24/2026  9:54:57.23] Starting stats update... 
+^C[Thu 03/26/2026 15:50:38.75] Starting stats update... 
+^C
