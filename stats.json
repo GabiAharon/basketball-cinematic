@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T10:26:31.087325",
+  "last_updated": "2026-04-12T10:30:41.127220",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -24,27 +24,27 @@
         "spg": 1.1,
         "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 0,
-        "ft_pct": 0,
+        "fg3_pct": 32.1,
+        "ft_pct": 73.5,
         "total_pts": 1253,
         "total_reb": 367,
         "total_ast": 431
       },
       "career": {
-        "gp": 0,
-        "total_pts": 0,
-        "total_reb": 0,
-        "total_ast": 0,
-        "total_stl": 0,
-        "total_blk": 0,
-        "ppg": 0,
-        "rpg": 0,
-        "apg": 0,
-        "fg_pct": 0,
+        "gp": 1621,
+        "total_pts": 43422,
+        "total_reb": 12091,
+        "total_ast": 12010,
+        "total_stl": 2414,
+        "total_blk": 1185,
+        "ppg": 26.8,
+        "rpg": 7.5,
+        "apg": 7.4,
+        "fg_pct": 50.7,
         "seasons": 22,
-        "best_season_pts": 0,
-        "best_season_reb": 0,
-        "best_season_ast": 0
+        "best_season_pts": 31.4,
+        "best_season_reb": 8.6,
+        "best_season_ast": 10.2
       },
       "last_game": {
         "pts": 28,
@@ -64,7 +64,48 @@
           "team2_pts": 101
         }
       },
-      "season_history": []
+      "season_history": [
+        {
+          "season": "2021-22",
+          "team": "LAL",
+          "gp": 56,
+          "ppg": 30.3,
+          "rpg": 8.2,
+          "apg": 6.2
+        },
+        {
+          "season": "2022-23",
+          "team": "LAL",
+          "gp": 55,
+          "ppg": 28.9,
+          "rpg": 8.3,
+          "apg": 6.8
+        },
+        {
+          "season": "2023-24",
+          "team": "LAL",
+          "gp": 71,
+          "ppg": 25.7,
+          "rpg": 7.3,
+          "apg": 8.3
+        },
+        {
+          "season": "2024-25",
+          "team": "LAL",
+          "gp": 70,
+          "ppg": 24.4,
+          "rpg": 7.8,
+          "apg": 8.2
+        },
+        {
+          "season": "2025-26",
+          "team": "LAL",
+          "gp": 59,
+          "ppg": 21.0,
+          "rpg": 6.1,
+          "apg": 7.2
+        }
+      ]
     },
     "Deni Avdija": {
       "name": "Deni Avdija",
@@ -89,27 +130,27 @@
         "spg": 0.7,
         "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 0,
-        "ft_pct": 0,
+        "fg3_pct": 31.3,
+        "ft_pct": 80.2,
         "total_pts": 1630,
         "total_reb": 473,
         "total_ast": 447
       },
       "career": {
-        "gp": 0,
-        "total_pts": 0,
-        "total_reb": 0,
-        "total_ast": 0,
-        "total_stl": 0,
-        "total_blk": 0,
-        "ppg": 0,
-        "rpg": 0,
-        "apg": 0,
-        "fg_pct": 0,
+        "gp": 424,
+        "total_pts": 5618,
+        "total_reb": 2684,
+        "total_ast": 1440,
+        "total_stl": 337,
+        "total_blk": 200,
+        "ppg": 13.3,
+        "rpg": 6.3,
+        "apg": 3.4,
+        "fg_pct": 46.2,
         "seasons": 5,
-        "best_season_pts": 0,
-        "best_season_reb": 0,
-        "best_season_ast": 0
+        "best_season_pts": 24.2,
+        "best_season_reb": 7.3,
+        "best_season_ast": 6.6
       },
       "last_game": {
         "pts": 35,
@@ -129,7 +170,48 @@
           "team2_pts": 116
         }
       },
-      "season_history": []
+      "season_history": [
+        {
+          "season": "2021-22",
+          "team": "WSH",
+          "gp": 82,
+          "ppg": 8.4,
+          "rpg": 5.2,
+          "apg": 2.0
+        },
+        {
+          "season": "2022-23",
+          "team": "WSH",
+          "gp": 76,
+          "ppg": 9.2,
+          "rpg": 6.4,
+          "apg": 2.8
+        },
+        {
+          "season": "2023-24",
+          "team": "WSH",
+          "gp": 75,
+          "ppg": 14.7,
+          "rpg": 7.2,
+          "apg": 3.8
+        },
+        {
+          "season": "2024-25",
+          "team": "POR",
+          "gp": 72,
+          "ppg": 16.9,
+          "rpg": 7.3,
+          "apg": 3.9
+        },
+        {
+          "season": "2025-26",
+          "team": "POR",
+          "gp": 65,
+          "ppg": 24.2,
+          "rpg": 6.9,
+          "apg": 6.6
+        }
+      ]
     },
     "Stephen Curry": {
       "name": "Stephen Curry",
@@ -154,27 +236,27 @@
         "spg": 1.0,
         "bpg": 0.4,
         "fg_pct": 0,
-        "fg3_pct": 0,
-        "ft_pct": 0,
+        "fg3_pct": 39.2,
+        "ft_pct": 93.0,
         "total_pts": 1191,
         "total_reb": 163,
         "total_ast": 215
       },
       "career": {
-        "gp": 0,
-        "total_pts": 0,
-        "total_reb": 0,
-        "total_ast": 0,
-        "total_stl": 0,
-        "total_blk": 0,
-        "ppg": 0,
-        "rpg": 0,
-        "apg": 0,
-        "fg_pct": 0,
+        "gp": 1068,
+        "total_pts": 26504,
+        "total_reb": 4967,
+        "total_ast": 6740,
+        "total_stl": 1600,
+        "total_blk": 281,
+        "ppg": 24.8,
+        "rpg": 4.7,
+        "apg": 6.3,
+        "fg_pct": 47.1,
         "seasons": 16,
-        "best_season_pts": 0,
-        "best_season_reb": 0,
-        "best_season_ast": 0
+        "best_season_pts": 32.0,
+        "best_season_reb": 6.1,
+        "best_season_ast": 8.5
       },
       "last_game": {
         "pts": 11,
@@ -194,7 +276,48 @@
           "team2_pts": 124
         }
       },
-      "season_history": []
+      "season_history": [
+        {
+          "season": "2021-22",
+          "team": "GS",
+          "gp": 64,
+          "ppg": 25.5,
+          "rpg": 5.2,
+          "apg": 6.3
+        },
+        {
+          "season": "2022-23",
+          "team": "GS",
+          "gp": 56,
+          "ppg": 29.4,
+          "rpg": 6.1,
+          "apg": 6.3
+        },
+        {
+          "season": "2023-24",
+          "team": "GS",
+          "gp": 74,
+          "ppg": 26.4,
+          "rpg": 4.5,
+          "apg": 5.1
+        },
+        {
+          "season": "2024-25",
+          "team": "GS",
+          "gp": 70,
+          "ppg": 24.5,
+          "rpg": 4.4,
+          "apg": 6.0
+        },
+        {
+          "season": "2025-26",
+          "team": "GS",
+          "gp": 42,
+          "ppg": 26.6,
+          "rpg": 3.5,
+          "apg": 4.8
+        }
+      ]
     }
   }
 }
