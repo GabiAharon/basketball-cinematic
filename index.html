@@ -1532,7 +1532,7 @@ function parseMatchup(matchup) {
 }
 
 // Load stats.json
-fetch('stats.json')
+fetch('stats.json?t=' + Date.now())
   .then(r => r.json())
   .then(data => {
     statsData = data;
