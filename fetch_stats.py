@@ -59,6 +59,10 @@ def fetch_player_stats(player):
     gamelog_data = api_get(f"{ESPN_WEB}/athletes/{eid}/gamelog")
     time.sleep(1)
 
+    # 3. Career stats (all seasons + totals)
+    stats_data = api_get(f"{ESPN_WEB}/athletes/{eid}/stats")
+    time.sleep(1)
+
     # Parse bio
     bio = {
         "height": ath.get("displayHeight", ""),
@@ -218,6 +222,140 @@ def fetch_player_stats(player):
 
     gp = max(total_games, 1)
 
+    # Parse career stats from stats endpoint
+    career_gp = 0
+    career_ppg = 0
+    career_rpg = 0
+    career_apg = 0
+    career_fg = 0
+    career_3pt = 0
+    career_ft = 0
+    season_history = []
+    career_total_pts = 0
+    career_total_reb = 0
+    career_total_ast = 0
+    career_total_stl = 0
+    career_total_blk = 0
+    best_season_pts = 0
+    best_season_reb = 0
+    best_season_ast = 0
+
+    # Current season shooting splits
+    current_fg3_pct = 0
+    current_ft_pct = 0
+
+    try:
+        s_categories = stats_data.get("categories", [])
+
+        # Find "averages" category for per-season and career averages
+        avg_cat = None
+        totals_cat = None
+        for cat in s_categories:
+            if cat.get("name") == "averages":
+                avg_cat = cat
+            elif cat.get("name") == "totals":
+                totals_cat = cat
+
+        if avg_cat:
+            avg_labels = avg_cat.get("names", [])
+
+            def avg_idx(label):
+                try:
+                    return avg_labels.index(label)
+                except ValueError:
+                    return -1
+
+            ai_gp = avg_idx("gamesPlayed")
+            ai_ppg = avg_idx("avgPoints")
+            ai_rpg = avg_idx("avgRebounds")
+            ai_apg = avg_idx("avgAssists")
+            ai_fg = avg_idx("fieldGoalPct")
+            ai_3pt = avg_idx("threePointFieldGoalPct")
+            ai_ft = avg_idx("freeThrowPct")
+
+            # Per-season stats (last 5 seasons for history)
+            all_seasons = avg_cat.get("statistics", [])
+            for s in all_seasons:
+                season_name = s.get("season", {}).get("displayName", "")
+                s_team = s.get("teamSlug", "").split("-")
+                s_team_abbr = ""
+                # Get team abbreviation from teams mapping
+                team_slug = s.get("teamSlug", "")
+                teams_map = stats_data.get("teams", {})
+                if team_slug in teams_map:
+                    s_team_abbr = teams_map[team_slug].get("abbreviation", "")
+
+                s_stats = s.get("stats", [])
+                s_gp = safe_float(s_stats, ai_gp)
+                s_ppg = safe_float(s_stats, ai_ppg)
+                s_rpg = safe_float(s_stats, ai_rpg)
+                s_apg = safe_float(s_stats, ai_apg)
+
+                season_history.append({
+                    "season": season_name,
+                    "team": s_team_abbr,
+                    "gp": int(s_gp),
+                    "ppg": s_ppg,
+                    "rpg": s_rpg,
+                    "apg": s_apg,
+                })
+
+                # Track best seasons
+                if s_ppg > best_season_pts:
+                    best_season_pts = s_ppg
+                if s_rpg > best_season_reb:
+                    best_season_reb = s_rpg
+                if s_apg > best_season_ast:
+                    best_season_ast = s_apg
+
+            # Current season shooting splits (last entry)
+            if all_seasons:
+                current = all_seasons[-1].get("stats", [])
+                current_fg3_pct = safe_float(current, ai_3pt)
+                current_ft_pct = safe_float(current, ai_ft)
+
+            # Career totals row
+            career_totals = avg_cat.get("totals", [])
+            if career_totals:
+                career_gp = safe_int(career_totals, ai_gp)
+                career_ppg = safe_float(career_totals, ai_ppg)
+                career_rpg = safe_float(career_totals, ai_rpg)
+                career_apg = safe_float(career_totals, ai_apg)
+                career_fg = safe_float(career_totals, ai_fg)
+                career_3pt = safe_float(career_totals, ai_3pt)
+                career_ft = safe_float(career_totals, ai_ft)
+
+        # Get actual career total numbers from "totals" category
+        if totals_cat:
+            tot_labels = totals_cat.get("names", [])
+
+            def tot_idx(label):
+                try:
+                    return tot_labels.index(label)
+                except ValueError:
+                    return -1
+
+            ti_pts = tot_idx("points")
+            ti_reb = tot_idx("totalRebounds")
+            ti_ast = tot_idx("assists")
+            ti_stl = tot_idx("steals")
+            ti_blk = tot_idx("blocks")
+
+            # Sum all seasons
+            for s in totals_cat.get("statistics", []):
+                s_stats = s.get("stats", [])
+                career_total_pts += safe_int(s_stats, ti_pts)
+                career_total_reb += safe_int(s_stats, ti_reb)
+                career_total_ast += safe_int(s_stats, ti_ast)
+                career_total_stl += safe_int(s_stats, ti_stl)
+                career_total_blk += safe_int(s_stats, ti_blk)
+
+    except Exception as e:
+        print(f"    [!] Could not parse career stats: {e}")
+
+    # Keep only last 5 seasons for history
+    season_history = season_history[-5:] if len(season_history) > 5 else season_history
+
     result = {
         "name": name,
         "player_id": player.get("nba_id", eid),
@@ -232,30 +370,30 @@ def fetch_player_stats(player):
             "spg": round(total_stl / gp, 1),
             "bpg": round(total_blk / gp, 1),
             "fg_pct": round(stats_map.get("fieldGoalPct", 0), 1),
-            "fg3_pct": 0,
-            "ft_pct": 0,
+            "fg3_pct": round(current_fg3_pct, 1),
+            "ft_pct": round(current_ft_pct, 1),
             "total_pts": total_pts,
             "total_reb": total_reb,
             "total_ast": total_ast,
         },
         "career": {
-            "gp": 0,
-            "total_pts": 0,
-            "total_reb": 0,
-            "total_ast": 0,
-            "total_stl": 0,
-            "total_blk": 0,
-            "ppg": round(stats_map.get("avgPoints", 0), 1),
-            "rpg": round(stats_map.get("avgRebounds", 0), 1),
-            "apg": round(stats_map.get("avgAssists", 0), 1),
-            "fg_pct": round(stats_map.get("fieldGoalPct", 0), 1),
+            "gp": career_gp,
+            "total_pts": career_total_pts,
+            "total_reb": career_total_reb,
+            "total_ast": career_total_ast,
+            "total_stl": career_total_stl,
+            "total_blk": career_total_blk,
+            "ppg": career_ppg,
+            "rpg": career_rpg,
+            "apg": career_apg,
+            "fg_pct": career_fg,
             "seasons": bio["years_pro"],
-            "best_season_pts": 0,
-            "best_season_reb": 0,
-            "best_season_ast": 0,
+            "best_season_pts": best_season_pts,
+            "best_season_reb": best_season_reb,
+            "best_season_ast": best_season_ast,
         },
         "last_game": last_game,
-        "season_history": [],
+        "season_history": season_history,
     }
 
     return result
