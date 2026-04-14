@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-13T08:58:16.333868",
+  "last_updated": "2026-04-14T08:22:13.786986",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -24,18 +24,18 @@
         "spg": 1.2,
         "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 32.1,
-        "ft_pct": 73.5,
+        "fg3_pct": 31.7,
+        "ft_pct": 73.7,
         "total_pts": 1271,
         "total_reb": 371,
         "total_ast": 437
       },
       "career": {
-        "gp": 1621,
-        "total_pts": 43422,
-        "total_reb": 12091,
-        "total_ast": 12010,
-        "total_stl": 2414,
+        "gp": 1622,
+        "total_pts": 43440,
+        "total_reb": 12095,
+        "total_ast": 12016,
+        "total_stl": 2417,
         "total_blk": 1185,
         "ppg": 26.8,
         "rpg": 7.5,
@@ -100,8 +100,8 @@
         {
           "season": "2025-26",
           "team": "LAL",
-          "gp": 59,
-          "ppg": 21.0,
+          "gp": 60,
+          "ppg": 20.9,
           "rpg": 6.1,
           "apg": 7.2
         }
@@ -130,17 +130,17 @@
         "spg": 0.7,
         "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 31.3,
+        "fg3_pct": 31.8,
         "ft_pct": 80.2,
         "total_pts": 1655,
         "total_reb": 479,
         "total_ast": 457
       },
       "career": {
-        "gp": 424,
-        "total_pts": 5618,
-        "total_reb": 2684,
-        "total_ast": 1440,
+        "gp": 425,
+        "total_pts": 5643,
+        "total_reb": 2690,
+        "total_ast": 1450,
         "total_stl": 337,
         "total_blk": 200,
         "ppg": 13.3,
@@ -150,7 +150,7 @@
         "seasons": 5,
         "best_season_pts": 24.2,
         "best_season_reb": 7.3,
-        "best_season_ast": 6.6
+        "best_season_ast": 6.7
       },
       "last_game": {
         "pts": 25,
@@ -206,10 +206,10 @@
         {
           "season": "2025-26",
           "team": "POR",
-          "gp": 65,
+          "gp": 66,
           "ppg": 24.2,
           "rpg": 6.9,
-          "apg": 6.6
+          "apg": 6.7
         }
       ]
     },
@@ -236,19 +236,19 @@
         "spg": 1.0,
         "bpg": 0.4,
         "fg_pct": 0,
-        "fg3_pct": 39.2,
-        "ft_pct": 93.0,
+        "fg3_pct": 39.3,
+        "ft_pct": 92.3,
         "total_pts": 1215,
         "total_reb": 169,
         "total_ast": 218
       },
       "career": {
-        "gp": 1068,
-        "total_pts": 26504,
-        "total_reb": 4967,
-        "total_ast": 6740,
-        "total_stl": 1600,
-        "total_blk": 281,
+        "gp": 1069,
+        "total_pts": 26528,
+        "total_reb": 4973,
+        "total_ast": 6743,
+        "total_stl": 1601,
+        "total_blk": 282,
         "ppg": 24.8,
         "rpg": 4.7,
         "apg": 6.3,
@@ -312,10 +312,10 @@
         {
           "season": "2025-26",
           "team": "GS",
-          "gp": 42,
+          "gp": 43,
           "ppg": 26.6,
-          "rpg": 3.5,
-          "apg": 4.8
+          "rpg": 3.6,
+          "apg": 4.7
         }
       ]
     }
