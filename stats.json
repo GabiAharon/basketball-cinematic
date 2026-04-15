@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-14T08:22:13.786986",
+  "last_updated": "2026-04-15T08:23:25.677212",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -123,18 +123,18 @@
       "current_season": {
         "season": "2025-26",
         "team": "POR",
-        "gp": 72,
-        "ppg": 23.0,
+        "gp": 73,
+        "ppg": 23.2,
         "rpg": 6.7,
-        "apg": 6.3,
+        "apg": 6.4,
         "spg": 0.7,
         "bpg": 0.6,
         "fg_pct": 0,
         "fg3_pct": 31.8,
         "ft_pct": 80.2,
-        "total_pts": 1655,
-        "total_reb": 479,
-        "total_ast": 457
+        "total_pts": 1696,
+        "total_reb": 486,
+        "total_ast": 469
       },
       "career": {
         "gp": 425,
@@ -153,21 +153,21 @@
         "best_season_ast": 6.7
       },
       "last_game": {
-        "pts": 25,
-        "reb": 6,
-        "ast": 10,
+        "pts": 41,
+        "reb": 7,
+        "ast": 12,
         "stl": 0,
-        "blk": 0,
-        "min": 33,
-        "fg_pct": 47.4,
-        "date": "Apr 13, 2026",
-        "matchup": "POR vs. SAC",
+        "blk": 2,
+        "min": 38,
+        "fg_pct": 68.2,
+        "date": "Apr 15, 2026",
+        "matchup": "POR @ PHX",
         "result": "W",
         "score": {
-          "team1_abbr": "SAC",
-          "team1_pts": 110,
-          "team2_abbr": "POR",
-          "team2_pts": 122
+          "team1_abbr": "POR",
+          "team1_pts": 114,
+          "team2_abbr": "PHX",
+          "team2_pts": 110
         }
       },
       "season_history": [
