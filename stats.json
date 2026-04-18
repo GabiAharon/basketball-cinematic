@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-17T08:22:21.497690",
+  "last_updated": "2026-04-18T07:54:55.350718",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -229,18 +229,18 @@
       "current_season": {
         "season": "2025-26",
         "team": "GS",
-        "gp": 48,
-        "ppg": 26.0,
-        "rpg": 3.5,
+        "gp": 49,
+        "ppg": 25.9,
+        "rpg": 3.6,
         "apg": 4.6,
-        "spg": 1.0,
+        "spg": 1.1,
         "bpg": 0.4,
         "fg_pct": 0,
         "fg3_pct": 39.3,
         "ft_pct": 92.3,
-        "total_pts": 1250,
-        "total_reb": 170,
-        "total_ast": 222
+        "total_pts": 1267,
+        "total_reb": 174,
+        "total_ast": 226
       },
       "career": {
         "gp": 1069,
@@ -259,21 +259,21 @@
         "best_season_ast": 8.5
       },
       "last_game": {
-        "pts": 35,
-        "reb": 1,
+        "pts": 17,
+        "reb": 4,
         "ast": 4,
-        "stl": 1,
+        "stl": 2,
         "blk": 0,
         "min": 36,
-        "fg_pct": 52.2,
-        "date": "Apr 16, 2026",
-        "matchup": "GS @ LAC",
-        "result": "W",
+        "fg_pct": 25.0,
+        "date": "Apr 18, 2026",
+        "matchup": "GS @ PHX",
+        "result": "L",
         "score": {
           "team1_abbr": "GS",
-          "team1_pts": 126,
-          "team2_abbr": "LAC",
-          "team2_pts": 121
+          "team1_pts": 96,
+          "team2_abbr": "PHX",
+          "team2_pts": 111
         }
       },
       "season_history": [
