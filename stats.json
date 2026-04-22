@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21T08:28:24.516623",
+  "last_updated": "2026-04-22T08:25:56.984766",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -17,18 +17,18 @@
       "current_season": {
         "season": "2025-26",
         "team": "LAL",
-        "gp": 64,
-        "ppg": 20.2,
-        "rpg": 5.9,
+        "gp": 65,
+        "ppg": 20.3,
+        "rpg": 6.0,
         "apg": 7.0,
         "spg": 1.2,
         "bpg": 0.6,
         "fg_pct": 0,
         "fg3_pct": 31.7,
         "ft_pct": 73.7,
-        "total_pts": 1290,
-        "total_reb": 379,
-        "total_ast": 450
+        "total_pts": 1318,
+        "total_reb": 387,
+        "total_ast": 457
       },
       "career": {
         "gp": 1622,
@@ -47,21 +47,21 @@
         "best_season_ast": 10.2
       },
       "last_game": {
-        "pts": 19,
+        "pts": 28,
         "reb": 8,
-        "ast": 13,
-        "stl": 2,
-        "blk": 1,
-        "min": 38,
-        "fg_pct": 60.0,
-        "date": "Apr 19, 2026",
+        "ast": 7,
+        "stl": 1,
+        "blk": 0,
+        "min": 39,
+        "fg_pct": 40.0,
+        "date": "Apr 22, 2026",
         "matchup": "LAL vs. HOU",
         "result": "W",
         "score": {
           "team1_abbr": "HOU",
-          "team1_pts": 98,
+          "team1_pts": 94,
           "team2_abbr": "LAL",
-          "team2_pts": 107
+          "team2_pts": 101
         }
       },
       "season_history": [
@@ -123,8 +123,8 @@
       "current_season": {
         "season": "2025-26",
         "team": "POR",
-        "gp": 74,
-        "ppg": 23.3,
+        "gp": 75,
+        "ppg": 23.2,
         "rpg": 6.7,
         "apg": 6.4,
         "spg": 0.7,
@@ -132,9 +132,9 @@
         "fg_pct": 0,
         "fg3_pct": 31.8,
         "ft_pct": 80.2,
-        "total_pts": 1726,
-        "total_reb": 496,
-        "total_ast": 474
+        "total_pts": 1740,
+        "total_reb": 500,
+        "total_ast": 477
       },
       "career": {
         "gp": 425,
@@ -153,21 +153,21 @@
         "best_season_ast": 6.7
       },
       "last_game": {
-        "pts": 30,
-        "reb": 10,
-        "ast": 5,
-        "stl": 1,
+        "pts": 14,
+        "reb": 4,
+        "ast": 3,
+        "stl": 0,
         "blk": 1,
-        "min": 39,
-        "fg_pct": 57.1,
-        "date": "Apr 20, 2026",
+        "min": 30,
+        "fg_pct": 38.5,
+        "date": "Apr 22, 2026",
         "matchup": "POR @ SA",
-        "result": "L",
+        "result": "W",
         "score": {
           "team1_abbr": "POR",
-          "team1_pts": 98,
+          "team1_pts": 106,
           "team2_abbr": "SA",
-          "team2_pts": 111
+          "team2_pts": 103
         }
       },
       "season_history": [
