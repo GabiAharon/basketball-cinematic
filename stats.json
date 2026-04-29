@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-28T09:14:42.184702",
+  "last_updated": "2026-04-29T09:06:01.481774",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -123,18 +123,18 @@
       "current_season": {
         "season": "2025-26",
         "team": "POR",
-        "gp": 77,
+        "gp": 78,
         "ppg": 23.2,
-        "rpg": 6.7,
-        "apg": 6.4,
+        "rpg": 6.6,
+        "apg": 6.3,
         "spg": 0.7,
         "bpg": 0.6,
         "fg_pct": 0,
         "fg3_pct": 31.8,
         "ft_pct": 80.2,
-        "total_pts": 1785,
-        "total_reb": 513,
-        "total_ast": 489
+        "total_pts": 1807,
+        "total_reb": 516,
+        "total_ast": 492
       },
       "career": {
         "gp": 425,
@@ -153,21 +153,21 @@
         "best_season_ast": 6.7
       },
       "last_game": {
-        "pts": 26,
-        "reb": 7,
+        "pts": 22,
+        "reb": 3,
         "ast": 3,
-        "stl": 1,
-        "blk": 0,
-        "min": 37,
-        "fg_pct": 57.1,
-        "date": "Apr 26, 2026",
-        "matchup": "POR vs. SA",
+        "stl": 0,
+        "blk": 1,
+        "min": 32,
+        "fg_pct": 46.7,
+        "date": "Apr 29, 2026",
+        "matchup": "POR @ SA",
         "result": "L",
         "score": {
-          "team1_abbr": "SA",
-          "team1_pts": 114,
-          "team2_abbr": "POR",
-          "team2_pts": 93
+          "team1_abbr": "POR",
+          "team1_pts": 95,
+          "team2_abbr": "SA",
+          "team2_pts": 114
         }
       },
       "season_history": [
