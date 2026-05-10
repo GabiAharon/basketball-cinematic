@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-09T08:23:50.968632",
+  "last_updated": "2026-05-10T08:49:06.269083",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -17,8 +17,8 @@
       "current_season": {
         "season": "2025-26",
         "team": "LAL",
-        "gp": 71,
-        "ppg": 20.6,
+        "gp": 72,
+        "ppg": 20.5,
         "rpg": 5.9,
         "apg": 7.0,
         "spg": 1.2,
@@ -26,9 +26,9 @@
         "fg_pct": 0,
         "fg3_pct": 31.7,
         "ft_pct": 73.7,
-        "total_pts": 1460,
-        "total_reb": 420,
-        "total_ast": 499
+        "total_pts": 1479,
+        "total_reb": 426,
+        "total_ast": 507
       },
       "career": {
         "gp": 1622,
@@ -47,21 +47,21 @@
         "best_season_ast": 10.2
       },
       "last_game": {
-        "pts": 23,
-        "reb": 2,
-        "ast": 6,
-        "stl": 3,
+        "pts": 19,
+        "reb": 6,
+        "ast": 8,
+        "stl": 1,
         "blk": 0,
-        "min": 38,
-        "fg_pct": 50.0,
-        "date": "May 08, 2026",
-        "matchup": "LAL @ OKC",
+        "min": 37,
+        "fg_pct": 36.8,
+        "date": "May 10, 2026",
+        "matchup": "LAL vs. OKC",
         "result": "L",
         "score": {
-          "team1_abbr": "LAL",
-          "team1_pts": 107,
-          "team2_abbr": "OKC",
-          "team2_pts": 125
+          "team1_abbr": "OKC",
+          "team1_pts": 131,
+          "team2_abbr": "LAL",
+          "team2_pts": 108
         }
       },
       "season_history": [
