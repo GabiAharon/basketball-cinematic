@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-08T09:21:12.552317",
+  "last_updated": "2026-07-09T10:18:49.427217",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -12,7 +12,7 @@
         "draft_year": "2003",
         "draft_round": "1",
         "draft_number": "1",
-        "years_pro": 22
+        "years_pro": 23
       },
       "current_season": {
         "season": "2025-26",
@@ -41,7 +41,7 @@
         "rpg": 7.5,
         "apg": 7.4,
         "fg_pct": 50.7,
-        "seasons": 22,
+        "seasons": 23,
         "best_season_pts": 31.4,
         "best_season_reb": 8.6,
         "best_season_ast": 10.2
