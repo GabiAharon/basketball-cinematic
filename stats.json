@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-09T10:18:49.427217",
+  "last_updated": "2026-07-10T10:15:00.909703",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -118,7 +118,7 @@
         "draft_year": "2020",
         "draft_round": "1",
         "draft_number": "9",
-        "years_pro": 5
+        "years_pro": 6
       },
       "current_season": {
         "season": "2025-26",
@@ -147,7 +147,7 @@
         "rpg": 6.3,
         "apg": 3.4,
         "fg_pct": 46.2,
-        "seasons": 5,
+        "seasons": 6,
         "best_season_pts": 24.2,
         "best_season_reb": 7.3,
         "best_season_ast": 6.7
@@ -224,7 +224,7 @@
         "draft_year": "2009",
         "draft_round": "1",
         "draft_number": "7",
-        "years_pro": 16
+        "years_pro": 17
       },
       "current_season": {
         "season": "2025-26",
@@ -253,7 +253,7 @@
         "rpg": 4.7,
         "apg": 6.3,
         "fg_pct": 47.1,
-        "seasons": 16,
+        "seasons": 17,
         "best_season_pts": 32.0,
         "best_season_reb": 6.1,
         "best_season_ast": 8.5
