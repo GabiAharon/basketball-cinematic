@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-24T09:14:31.362414",
+  "last_updated": "2026-07-25T08:54:44.689178",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -16,7 +16,7 @@
       },
       "current_season": {
         "season": "2025-26",
-        "team": "LAL",
+        "team": "PHI",
         "gp": 73,
         "ppg": 20.6,
         "rpg": 6.0,
@@ -55,8 +55,8 @@
         "min": 40,
         "fg_pct": 44.4,
         "date": "May 12, 2026",
-        "matchup": "LAL vs. OKC",
-        "result": "L",
+        "matchup": "PHI @ LAL",
+        "result": "W",
         "score": {
           "team1_abbr": "OKC",
           "team1_pts": 115,
