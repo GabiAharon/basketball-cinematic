@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-20T12:24:41.764147",
+  "last_updated": "2026-10-21T12:35:32.593887",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -17,62 +17,54 @@
       "current_season": {
         "season": "2025-26",
         "team": "PHI",
-        "gp": 73,
-        "ppg": 20.6,
-        "rpg": 6.0,
-        "apg": 7.0,
-        "spg": 1.2,
-        "bpg": 0.5,
+        "gp": 3,
+        "ppg": 10.7,
+        "rpg": 7.0,
+        "apg": 6.3,
+        "spg": 1.0,
+        "bpg": 0.3,
         "fg_pct": 0,
-        "fg3_pct": 31.7,
-        "ft_pct": 73.7,
-        "total_pts": 1503,
-        "total_reb": 438,
-        "total_ast": 510
+        "fg3_pct": 0.0,
+        "ft_pct": 66.7,
+        "total_pts": 32,
+        "total_reb": 21,
+        "total_ast": 19
       },
       "career": {
-        "gp": 1622,
-        "total_pts": 43440,
-        "total_reb": 12095,
-        "total_ast": 12016,
-        "total_stl": 2417,
-        "total_blk": 1185,
+        "gp": 1623,
+        "total_pts": 43454,
+        "total_reb": 12104,
+        "total_ast": 12023,
+        "total_stl": 2418,
+        "total_blk": 1186,
         "ppg": 26.8,
         "rpg": 7.5,
         "apg": 7.4,
         "fg_pct": 50.7,
         "seasons": 24,
         "best_season_pts": 31.4,
-        "best_season_reb": 8.6,
+        "best_season_reb": 9.0,
         "best_season_ast": 10.2
       },
       "last_game": {
-        "pts": 24,
-        "reb": 12,
-        "ast": 3,
-        "stl": 0,
+        "pts": 14,
+        "reb": 9,
+        "ast": 7,
+        "stl": 1,
         "blk": 1,
-        "min": 40,
-        "fg_pct": 44.4,
-        "date": "May 12, 2026",
-        "matchup": "PHI @ LAL",
+        "min": 34,
+        "fg_pct": 38.5,
+        "date": "Oct 20, 2026",
+        "matchup": "PHI @ NY",
         "result": "W",
         "score": {
-          "team1_abbr": "OKC",
-          "team1_pts": 115,
-          "team2_abbr": "LAL",
-          "team2_pts": 110
+          "team1_abbr": "PHI",
+          "team1_pts": 106,
+          "team2_abbr": "NY",
+          "team2_pts": 100
         }
       },
       "season_history": [
-        {
-          "season": "2021-22",
-          "team": "LAL",
-          "gp": 56,
-          "ppg": 30.3,
-          "rpg": 8.2,
-          "apg": 6.2
-        },
         {
           "season": "2022-23",
           "team": "LAL",
@@ -104,6 +96,14 @@
           "ppg": 20.9,
           "rpg": 6.1,
           "apg": 7.2
+        },
+        {
+          "season": "2026-27",
+          "team": "PHI",
+          "gp": 1,
+          "ppg": 14.0,
+          "rpg": 9.0,
+          "apg": 7.0
         }
       ]
     },
