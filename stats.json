@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-21T12:35:32.593887",
+  "last_updated": "2026-10-22T12:38:17.476125",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -123,25 +123,25 @@
       "current_season": {
         "season": "2025-26",
         "team": "POR",
-        "gp": 78,
-        "ppg": 23.2,
-        "rpg": 6.6,
-        "apg": 6.3,
-        "spg": 0.7,
+        "gp": 5,
+        "ppg": 17.6,
+        "rpg": 6.0,
+        "apg": 3.4,
+        "spg": 0.8,
         "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 31.8,
-        "ft_pct": 80.2,
-        "total_pts": 1807,
-        "total_reb": 516,
-        "total_ast": 492
+        "fg3_pct": 50.0,
+        "ft_pct": 50.0,
+        "total_pts": 88,
+        "total_reb": 30,
+        "total_ast": 17
       },
       "career": {
-        "gp": 425,
-        "total_pts": 5643,
-        "total_reb": 2690,
-        "total_ast": 1450,
-        "total_stl": 337,
+        "gp": 426,
+        "total_pts": 5661,
+        "total_reb": 2700,
+        "total_ast": 1454,
+        "total_stl": 339,
         "total_blk": 200,
         "ppg": 13.3,
         "rpg": 6.3,
@@ -149,36 +149,28 @@
         "fg_pct": 46.2,
         "seasons": 7,
         "best_season_pts": 24.2,
-        "best_season_reb": 7.3,
+        "best_season_reb": 10.0,
         "best_season_ast": 6.7
       },
       "last_game": {
-        "pts": 22,
-        "reb": 3,
-        "ast": 3,
-        "stl": 0,
-        "blk": 1,
-        "min": 32,
-        "fg_pct": 46.7,
-        "date": "Apr 29, 2026",
-        "matchup": "POR @ SA",
-        "result": "L",
+        "pts": 18,
+        "reb": 10,
+        "ast": 4,
+        "stl": 2,
+        "blk": 0,
+        "min": 23,
+        "fg_pct": 43.8,
+        "date": "Oct 22, 2026",
+        "matchup": "POR vs. PHX",
+        "result": "W",
         "score": {
-          "team1_abbr": "POR",
-          "team1_pts": 95,
-          "team2_abbr": "SA",
-          "team2_pts": 114
+          "team1_abbr": "PHX",
+          "team1_pts": 83,
+          "team2_abbr": "POR",
+          "team2_pts": 124
         }
       },
       "season_history": [
-        {
-          "season": "2021-22",
-          "team": "WSH",
-          "gp": 82,
-          "ppg": 8.4,
-          "rpg": 5.2,
-          "apg": 2.0
-        },
         {
           "season": "2022-23",
           "team": "WSH",
@@ -210,6 +202,14 @@
           "ppg": 24.2,
           "rpg": 6.9,
           "apg": 6.7
+        },
+        {
+          "season": "2026-27",
+          "team": "POR",
+          "gp": 1,
+          "ppg": 18.0,
+          "rpg": 10.0,
+          "apg": 4.0
         }
       ]
     },
@@ -229,28 +229,28 @@
       "current_season": {
         "season": "2025-26",
         "team": "GS",
-        "gp": 49,
-        "ppg": 25.9,
-        "rpg": 3.6,
-        "apg": 4.6,
-        "spg": 1.1,
-        "bpg": 0.4,
+        "gp": 6,
+        "ppg": 14.7,
+        "rpg": 2.0,
+        "apg": 2.8,
+        "spg": 0.8,
+        "bpg": 0.0,
         "fg_pct": 0,
-        "fg3_pct": 39.3,
-        "ft_pct": 92.3,
-        "total_pts": 1267,
-        "total_reb": 174,
-        "total_ast": 226
+        "fg3_pct": 28.6,
+        "ft_pct": 100.0,
+        "total_pts": 88,
+        "total_reb": 12,
+        "total_ast": 17
       },
       "career": {
-        "gp": 1069,
-        "total_pts": 26528,
-        "total_reb": 4973,
-        "total_ast": 6743,
-        "total_stl": 1601,
+        "gp": 1070,
+        "total_pts": 26551,
+        "total_reb": 4975,
+        "total_ast": 6744,
+        "total_stl": 1603,
         "total_blk": 282,
         "ppg": 24.8,
-        "rpg": 4.7,
+        "rpg": 4.6,
         "apg": 6.3,
         "fg_pct": 47.1,
         "seasons": 18,
@@ -259,32 +259,24 @@
         "best_season_ast": 8.5
       },
       "last_game": {
-        "pts": 17,
-        "reb": 4,
-        "ast": 4,
+        "pts": 23,
+        "reb": 2,
+        "ast": 1,
         "stl": 2,
         "blk": 0,
-        "min": 36,
-        "fg_pct": 25.0,
-        "date": "Apr 18, 2026",
-        "matchup": "GS @ PHX",
+        "min": 21,
+        "fg_pct": 46.7,
+        "date": "Oct 22, 2026",
+        "matchup": "GS @ LAL",
         "result": "L",
         "score": {
           "team1_abbr": "GS",
-          "team1_pts": 96,
-          "team2_abbr": "PHX",
-          "team2_pts": 111
+          "team1_pts": 105,
+          "team2_abbr": "LAL",
+          "team2_pts": 127
         }
       },
       "season_history": [
-        {
-          "season": "2021-22",
-          "team": "GS",
-          "gp": 64,
-          "ppg": 25.5,
-          "rpg": 5.2,
-          "apg": 6.3
-        },
         {
           "season": "2022-23",
           "team": "GS",
@@ -316,6 +308,14 @@
           "ppg": 26.6,
           "rpg": 3.6,
           "apg": 4.7
+        },
+        {
+          "season": "2026-27",
+          "team": "GS",
+          "gp": 1,
+          "ppg": 23.0,
+          "rpg": 2.0,
+          "apg": 1.0
         }
       ]
     }
