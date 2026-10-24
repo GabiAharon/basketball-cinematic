@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-23T12:17:30.538794",
+  "last_updated": "2026-10-24T11:43:17.715932",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -123,25 +123,25 @@
       "current_season": {
         "season": "2025-26",
         "team": "POR",
-        "gp": 5,
-        "ppg": 17.6,
+        "gp": 6,
+        "ppg": 19.0,
         "rpg": 6.0,
-        "apg": 3.4,
+        "apg": 3.8,
         "spg": 0.8,
-        "bpg": 0.6,
+        "bpg": 0.5,
         "fg_pct": 0,
-        "fg3_pct": 50.0,
-        "ft_pct": 50.0,
-        "total_pts": 88,
-        "total_reb": 30,
-        "total_ast": 17
+        "fg3_pct": 33.3,
+        "ft_pct": 68.8,
+        "total_pts": 114,
+        "total_reb": 36,
+        "total_ast": 23
       },
       "career": {
         "gp": 426,
-        "total_pts": 5661,
-        "total_reb": 2700,
-        "total_ast": 1454,
-        "total_stl": 339,
+        "total_pts": 5687,
+        "total_reb": 2707,
+        "total_ast": 1460,
+        "total_stl": 340,
         "total_blk": 200,
         "ppg": 13.3,
         "rpg": 6.3,
@@ -149,25 +149,25 @@
         "fg_pct": 46.2,
         "seasons": 7,
         "best_season_pts": 24.2,
-        "best_season_reb": 10.0,
+        "best_season_reb": 8.5,
         "best_season_ast": 6.7
       },
       "last_game": {
-        "pts": 18,
-        "reb": 10,
-        "ast": 4,
-        "stl": 2,
+        "pts": 26,
+        "reb": 6,
+        "ast": 6,
+        "stl": 1,
         "blk": 0,
-        "min": 23,
-        "fg_pct": 43.8,
-        "date": "Oct 22, 2026",
-        "matchup": "POR vs. PHX",
+        "min": 38,
+        "fg_pct": 50.0,
+        "date": "Oct 24, 2026",
+        "matchup": "POR @ SAC",
         "result": "W",
         "score": {
-          "team1_abbr": "PHX",
-          "team1_pts": 83,
-          "team2_abbr": "POR",
-          "team2_pts": 124
+          "team1_abbr": "POR",
+          "team1_pts": 128,
+          "team2_abbr": "SAC",
+          "team2_pts": 120
         }
       },
       "season_history": [
@@ -206,10 +206,10 @@
         {
           "season": "2026-27",
           "team": "POR",
-          "gp": 1,
-          "ppg": 18.0,
-          "rpg": 10.0,
-          "apg": 4.0
+          "gp": 2,
+          "ppg": 22.0,
+          "rpg": 8.5,
+          "apg": 5.0
         }
       ]
     },
@@ -229,24 +229,24 @@
       "current_season": {
         "season": "2025-26",
         "team": "GS",
-        "gp": 6,
-        "ppg": 14.7,
+        "gp": 7,
+        "ppg": 16.0,
         "rpg": 2.0,
-        "apg": 2.8,
-        "spg": 0.8,
+        "apg": 3.0,
+        "spg": 0.7,
         "bpg": 0.0,
         "fg_pct": 0,
-        "fg3_pct": 28.6,
+        "fg3_pct": 29.4,
         "ft_pct": 100.0,
-        "total_pts": 88,
-        "total_reb": 12,
-        "total_ast": 17
+        "total_pts": 112,
+        "total_reb": 14,
+        "total_ast": 21
       },
       "career": {
         "gp": 1070,
-        "total_pts": 26551,
-        "total_reb": 4975,
-        "total_ast": 6744,
+        "total_pts": 26575,
+        "total_reb": 4977,
+        "total_ast": 6748,
         "total_stl": 1603,
         "total_blk": 282,
         "ppg": 24.8,
@@ -259,21 +259,21 @@
         "best_season_ast": 8.5
       },
       "last_game": {
-        "pts": 23,
+        "pts": 24,
         "reb": 2,
-        "ast": 1,
-        "stl": 2,
+        "ast": 4,
+        "stl": 0,
         "blk": 0,
-        "min": 21,
-        "fg_pct": 46.7,
-        "date": "Oct 22, 2026",
-        "matchup": "GS @ LAL",
+        "min": 30,
+        "fg_pct": 33.3,
+        "date": "Oct 24, 2026",
+        "matchup": "GS vs. MEM",
         "result": "L",
         "score": {
-          "team1_abbr": "GS",
-          "team1_pts": 105,
-          "team2_abbr": "LAL",
-          "team2_pts": 127
+          "team1_abbr": "MEM",
+          "team1_pts": 111,
+          "team2_abbr": "GS",
+          "team2_pts": 108
         }
       },
       "season_history": [
@@ -312,10 +312,10 @@
         {
           "season": "2026-27",
           "team": "GS",
-          "gp": 1,
-          "ppg": 23.0,
+          "gp": 2,
+          "ppg": 23.5,
           "rpg": 2.0,
-          "apg": 1.0
+          "apg": 2.5
         }
       ]
     }
