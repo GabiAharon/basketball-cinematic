@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-24T11:43:17.715932",
+  "last_updated": "2026-10-25T12:12:56.440702",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -125,7 +125,7 @@
         "team": "POR",
         "gp": 6,
         "ppg": 19.0,
-        "rpg": 6.0,
+        "rpg": 6.2,
         "apg": 3.8,
         "spg": 0.8,
         "bpg": 0.5,
@@ -133,11 +133,11 @@
         "fg3_pct": 33.3,
         "ft_pct": 68.8,
         "total_pts": 114,
-        "total_reb": 36,
+        "total_reb": 37,
         "total_ast": 23
       },
       "career": {
-        "gp": 426,
+        "gp": 427,
         "total_pts": 5687,
         "total_reb": 2707,
         "total_ast": 1460,
@@ -154,7 +154,7 @@
       },
       "last_game": {
         "pts": 26,
-        "reb": 6,
+        "reb": 7,
         "ast": 6,
         "stl": 1,
         "blk": 0,
@@ -243,7 +243,7 @@
         "total_ast": 21
       },
       "career": {
-        "gp": 1070,
+        "gp": 1071,
         "total_pts": 26575,
         "total_reb": 4977,
         "total_ast": 6748,
