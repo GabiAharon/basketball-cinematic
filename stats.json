@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-30T13:43:10.922888",
+  "last_updated": "2026-10-31T13:12:13.544881",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -17,27 +17,27 @@
       "current_season": {
         "season": "2025-26",
         "team": "PHI",
-        "gp": 6,
-        "ppg": 13.3,
-        "rpg": 6.3,
-        "apg": 6.5,
-        "spg": 1.5,
+        "gp": 7,
+        "ppg": 14.3,
+        "rpg": 6.7,
+        "apg": 6.7,
+        "spg": 1.4,
         "bpg": 0.7,
         "fg_pct": 0,
-        "fg3_pct": 23.1,
-        "ft_pct": 61.9,
-        "total_pts": 80,
-        "total_reb": 38,
-        "total_ast": 39
+        "fg3_pct": 26.3,
+        "ft_pct": 62.5,
+        "total_pts": 100,
+        "total_reb": 47,
+        "total_ast": 47
       },
       "career": {
-        "gp": 1626,
-        "total_pts": 43502,
-        "total_reb": 12121,
-        "total_ast": 12043,
-        "total_stl": 2424,
-        "total_blk": 1189,
-        "ppg": 26.8,
+        "gp": 1627,
+        "total_pts": 43522,
+        "total_reb": 12130,
+        "total_ast": 12051,
+        "total_stl": 2425,
+        "total_blk": 1190,
+        "ppg": 26.7,
         "rpg": 7.5,
         "apg": 7.4,
         "fg_pct": 50.7,
@@ -47,21 +47,21 @@
         "best_season_ast": 10.2
       },
       "last_game": {
-        "pts": 13,
-        "reb": 5,
-        "ast": 10,
+        "pts": 20,
+        "reb": 9,
+        "ast": 8,
         "stl": 1,
-        "blk": 2,
-        "min": 33,
-        "fg_pct": 41.7,
-        "date": "Oct 28, 2026",
-        "matchup": "PHI @ IND",
+        "blk": 1,
+        "min": 34,
+        "fg_pct": 53.3,
+        "date": "Oct 30, 2026",
+        "matchup": "PHI vs. NY",
         "result": "W",
         "score": {
-          "team1_abbr": "PHI",
-          "team1_pts": 114,
-          "team2_abbr": "IND",
-          "team2_pts": 109
+          "team1_abbr": "NY",
+          "team1_pts": 93,
+          "team2_abbr": "PHI",
+          "team2_pts": 98
         }
       },
       "season_history": [
@@ -100,10 +100,10 @@
         {
           "season": "2026-27",
           "team": "PHI",
-          "gp": 4,
-          "ppg": 15.5,
-          "rpg": 6.5,
-          "apg": 6.8
+          "gp": 5,
+          "ppg": 16.4,
+          "rpg": 7.0,
+          "apg": 7.0
         }
       ]
     },
@@ -229,26 +229,26 @@
       "current_season": {
         "season": "2025-26",
         "team": "GS",
-        "gp": 9,
-        "ppg": 20.0,
-        "rpg": 2.8,
-        "apg": 3.3,
+        "gp": 10,
+        "ppg": 21.1,
+        "rpg": 2.9,
+        "apg": 3.6,
         "spg": 1.0,
-        "bpg": 0.0,
+        "bpg": 0.1,
         "fg_pct": 0,
-        "fg3_pct": 38.9,
+        "fg3_pct": 44.0,
         "ft_pct": 100.0,
-        "total_pts": 180,
-        "total_reb": 25,
-        "total_ast": 30
+        "total_pts": 211,
+        "total_reb": 29,
+        "total_ast": 36
       },
       "career": {
-        "gp": 1073,
-        "total_pts": 26643,
-        "total_reb": 4988,
-        "total_ast": 6757,
-        "total_stl": 1607,
-        "total_blk": 282,
+        "gp": 1074,
+        "total_pts": 26674,
+        "total_reb": 4992,
+        "total_ast": 6763,
+        "total_stl": 1608,
+        "total_blk": 283,
         "ppg": 24.8,
         "rpg": 4.6,
         "apg": 6.3,
@@ -259,21 +259,21 @@
         "best_season_ast": 8.5
       },
       "last_game": {
-        "pts": 44,
-        "reb": 8,
+        "pts": 31,
+        "reb": 4,
         "ast": 6,
-        "stl": 2,
-        "blk": 0,
-        "min": 32,
-        "fg_pct": 40.7,
-        "date": "Oct 29, 2026",
-        "matchup": "GS @ MIN",
+        "stl": 1,
+        "blk": 1,
+        "min": 31,
+        "fg_pct": 47.8,
+        "date": "Oct 31, 2026",
+        "matchup": "GS vs. LAL",
         "result": "W",
         "score": {
-          "team1_abbr": "GS",
-          "team1_pts": 119,
-          "team2_abbr": "MIN",
-          "team2_pts": 114
+          "team1_abbr": "LAL",
+          "team1_pts": 95,
+          "team2_abbr": "GS",
+          "team2_pts": 112
         }
       },
       "season_history": [
@@ -312,10 +312,10 @@
         {
           "season": "2026-27",
           "team": "GS",
-          "gp": 4,
-          "ppg": 28.8,
+          "gp": 5,
+          "ppg": 29.2,
           "rpg": 3.8,
-          "apg": 3.5
+          "apg": 4.0
         }
       ]
     }
