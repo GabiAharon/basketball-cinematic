@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-31T13:12:13.544881",
+  "last_updated": "2026-11-01T13:55:45.809207",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -123,25 +123,25 @@
       "current_season": {
         "season": "2025-26",
         "team": "POR",
-        "gp": 8,
-        "ppg": 20.1,
-        "rpg": 6.2,
-        "apg": 4.9,
+        "gp": 9,
+        "ppg": 20.6,
+        "rpg": 6.1,
+        "apg": 4.6,
         "spg": 0.8,
-        "bpg": 0.5,
+        "bpg": 0.4,
         "fg_pct": 0,
-        "fg3_pct": 35.0,
-        "ft_pct": 62.9,
-        "total_pts": 161,
-        "total_reb": 50,
-        "total_ast": 39
+        "fg3_pct": 37.5,
+        "ft_pct": 66.7,
+        "total_pts": 185,
+        "total_reb": 55,
+        "total_ast": 41
       },
       "career": {
-        "gp": 429,
-        "total_pts": 5734,
-        "total_reb": 2720,
-        "total_ast": 1476,
-        "total_stl": 341,
+        "gp": 430,
+        "total_pts": 5758,
+        "total_reb": 2725,
+        "total_ast": 1478,
+        "total_stl": 342,
         "total_blk": 201,
         "ppg": 13.4,
         "rpg": 6.3,
@@ -149,25 +149,25 @@
         "fg_pct": 46.3,
         "seasons": 7,
         "best_season_pts": 24.2,
-        "best_season_reb": 7.5,
+        "best_season_reb": 7.3,
         "best_season_ast": 6.7
       },
       "last_game": {
         "pts": 24,
-        "reb": 9,
-        "ast": 7,
-        "stl": 0,
-        "blk": 1,
-        "min": 32,
+        "reb": 5,
+        "ast": 2,
+        "stl": 1,
+        "blk": 0,
+        "min": 30,
         "fg_pct": 50.0,
-        "date": "Oct 30, 2026",
-        "matchup": "POR vs. MEM",
-        "result": "L",
+        "date": "Oct 31, 2026",
+        "matchup": "POR @ UTAH",
+        "result": "W",
         "score": {
-          "team1_abbr": "MEM",
-          "team1_pts": 124,
-          "team2_abbr": "POR",
-          "team2_pts": 103
+          "team1_abbr": "POR",
+          "team1_pts": 112,
+          "team2_abbr": "UTAH",
+          "team2_pts": 90
         }
       },
       "season_history": [
@@ -206,10 +206,10 @@
         {
           "season": "2026-27",
           "team": "POR",
-          "gp": 4,
-          "ppg": 22.8,
-          "rpg": 7.5,
-          "apg": 6.5
+          "gp": 5,
+          "ppg": 23.0,
+          "rpg": 7.0,
+          "apg": 5.6
         }
       ]
     },
