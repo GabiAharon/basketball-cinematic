@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-08T13:58:26.659110",
+  "last_updated": "2026-11-09T16:59:17.809452",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -17,25 +17,25 @@
       "current_season": {
         "season": "2025-26",
         "team": "PHI",
-        "gp": 10,
-        "ppg": 13.6,
-        "rpg": 7.1,
-        "apg": 6.7,
+        "gp": 11,
+        "ppg": 14.4,
+        "rpg": 6.9,
+        "apg": 6.5,
         "spg": 1.4,
-        "bpg": 0.7,
+        "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 22.2,
-        "ft_pct": 66.7,
-        "total_pts": 136,
-        "total_reb": 71,
-        "total_ast": 67
+        "fg3_pct": 25.0,
+        "ft_pct": 68.4,
+        "total_pts": 158,
+        "total_reb": 76,
+        "total_ast": 72
       },
       "career": {
-        "gp": 1630,
-        "total_pts": 43558,
-        "total_reb": 12154,
-        "total_ast": 12071,
-        "total_stl": 2429,
+        "gp": 1631,
+        "total_pts": 43580,
+        "total_reb": 12159,
+        "total_ast": 12076,
+        "total_stl": 2430,
         "total_blk": 1192,
         "ppg": 26.7,
         "rpg": 7.5,
@@ -47,21 +47,21 @@
         "best_season_ast": 10.2
       },
       "last_game": {
-        "pts": 8,
-        "reb": 7,
-        "ast": 3,
-        "stl": 2,
-        "blk": 1,
-        "min": 32,
-        "fg_pct": 25.0,
-        "date": "Nov 07, 2026",
-        "matchup": "PHI @ CLE",
-        "result": "L",
+        "pts": 22,
+        "reb": 5,
+        "ast": 5,
+        "stl": 1,
+        "blk": 0,
+        "min": 33,
+        "fg_pct": 50.0,
+        "date": "Nov 08, 2026",
+        "matchup": "PHI @ CHI",
+        "result": "W",
         "score": {
           "team1_abbr": "PHI",
-          "team1_pts": 95,
-          "team2_abbr": "CLE",
-          "team2_pts": 119
+          "team1_pts": 127,
+          "team2_abbr": "CHI",
+          "team2_pts": 121
         }
       },
       "season_history": [
@@ -100,10 +100,10 @@
         {
           "season": "2026-27",
           "team": "PHI",
-          "gp": 8,
-          "ppg": 14.8,
-          "rpg": 7.4,
-          "apg": 6.9
+          "gp": 9,
+          "ppg": 15.6,
+          "rpg": 7.1,
+          "apg": 6.7
         }
       ]
     },
