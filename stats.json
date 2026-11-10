@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-09T16:59:17.809452",
+  "last_updated": "2026-11-10T15:19:07.384716",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -229,24 +229,24 @@
       "current_season": {
         "season": "2025-26",
         "team": "GS",
-        "gp": 13,
-        "ppg": 24.2,
-        "rpg": 3.2,
-        "apg": 4.1,
+        "gp": 14,
+        "ppg": 24.3,
+        "rpg": 3.4,
+        "apg": 3.9,
         "spg": 0.9,
         "bpg": 0.1,
         "fg_pct": 0,
-        "fg3_pct": 44.7,
-        "ft_pct": 98.5,
-        "total_pts": 315,
-        "total_reb": 42,
-        "total_ast": 53
+        "fg3_pct": 45.7,
+        "ft_pct": 98.7,
+        "total_pts": 340,
+        "total_reb": 47,
+        "total_ast": 55
       },
       "career": {
-        "gp": 1077,
-        "total_pts": 26778,
-        "total_reb": 5005,
-        "total_ast": 6780,
+        "gp": 1078,
+        "total_pts": 26803,
+        "total_reb": 5010,
+        "total_ast": 6782,
         "total_stl": 1610,
         "total_blk": 283,
         "ppg": 24.9,
@@ -259,21 +259,21 @@
         "best_season_ast": 8.5
       },
       "last_game": {
-        "pts": 41,
-        "reb": 6,
-        "ast": 6,
+        "pts": 25,
+        "reb": 5,
+        "ast": 2,
         "stl": 0,
         "blk": 0,
-        "min": 36,
-        "fg_pct": 68.4,
-        "date": "Nov 08, 2026",
-        "matchup": "GS vs. ORL",
+        "min": 21,
+        "fg_pct": 60.0,
+        "date": "Nov 10, 2026",
+        "matchup": "GS vs. NO",
         "result": "W",
         "score": {
-          "team1_abbr": "ORL",
-          "team1_pts": 119,
+          "team1_abbr": "NO",
+          "team1_pts": 87,
           "team2_abbr": "GS",
-          "team2_pts": 126
+          "team2_pts": 138
         }
       },
       "season_history": [
@@ -312,10 +312,10 @@
         {
           "season": "2026-27",
           "team": "GS",
-          "gp": 8,
-          "ppg": 31.3,
-          "rpg": 4.0,
-          "apg": 4.6
+          "gp": 9,
+          "ppg": 30.6,
+          "rpg": 4.1,
+          "apg": 4.3
         }
       ]
     }
