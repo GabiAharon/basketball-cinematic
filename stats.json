@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-18T16:03:32.795480",
+  "last_updated": "2026-11-19T16:10:48.877486",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -17,24 +17,24 @@
       "current_season": {
         "season": "2025-26",
         "team": "PHI",
-        "gp": 13,
-        "ppg": 14.2,
-        "rpg": 7.0,
-        "apg": 6.8,
-        "spg": 1.2,
+        "gp": 14,
+        "ppg": 14.7,
+        "rpg": 6.7,
+        "apg": 6.7,
+        "spg": 1.1,
         "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 22.5,
-        "ft_pct": 71.7,
-        "total_pts": 184,
-        "total_reb": 91,
-        "total_ast": 88
+        "fg3_pct": 22.2,
+        "ft_pct": 73.1,
+        "total_pts": 206,
+        "total_reb": 94,
+        "total_ast": 94
       },
       "career": {
-        "gp": 1633,
-        "total_pts": 43606,
-        "total_reb": 12174,
-        "total_ast": 12092,
+        "gp": 1634,
+        "total_pts": 43628,
+        "total_reb": 12177,
+        "total_ast": 12098,
         "total_stl": 2430,
         "total_blk": 1193,
         "ppg": 26.7,
@@ -47,21 +47,21 @@
         "best_season_ast": 10.2
       },
       "last_game": {
-        "pts": 15,
-        "reb": 7,
-        "ast": 11,
+        "pts": 22,
+        "reb": 3,
+        "ast": 6,
         "stl": 0,
-        "blk": 1,
-        "min": 33,
-        "fg_pct": 62.5,
-        "date": "Nov 15, 2026",
-        "matchup": "PHI vs. IND",
+        "blk": 0,
+        "min": 31,
+        "fg_pct": 50.0,
+        "date": "Nov 19, 2026",
+        "matchup": "PHI @ ORL",
         "result": "W",
         "score": {
-          "team1_abbr": "IND",
-          "team1_pts": 124,
-          "team2_abbr": "PHI",
-          "team2_pts": 131
+          "team1_abbr": "PHI",
+          "team1_pts": 121,
+          "team2_abbr": "ORL",
+          "team2_pts": 116
         }
       },
       "season_history": [
@@ -100,10 +100,10 @@
         {
           "season": "2026-27",
           "team": "PHI",
-          "gp": 11,
-          "ppg": 15.1,
-          "rpg": 7.2,
-          "apg": 6.9
+          "gp": 12,
+          "ppg": 15.7,
+          "rpg": 6.8,
+          "apg": 6.8
         }
       ]
     },
