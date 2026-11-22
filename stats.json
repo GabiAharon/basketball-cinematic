@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-21T15:00:07.666740",
+  "last_updated": "2026-11-22T14:58:24.673164",
   "players": {
     "LeBron James": {
       "name": "LeBron James",
@@ -17,26 +17,26 @@
       "current_season": {
         "season": "2025-26",
         "team": "PHI",
-        "gp": 14,
-        "ppg": 14.7,
+        "gp": 15,
+        "ppg": 15.1,
         "rpg": 6.7,
         "apg": 6.7,
-        "spg": 1.1,
+        "spg": 1.2,
         "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 22.2,
-        "ft_pct": 73.1,
-        "total_pts": 206,
-        "total_reb": 94,
-        "total_ast": 94
+        "fg3_pct": 21.7,
+        "ft_pct": 74.5,
+        "total_pts": 227,
+        "total_reb": 100,
+        "total_ast": 100
       },
       "career": {
-        "gp": 1634,
-        "total_pts": 43628,
-        "total_reb": 12177,
-        "total_ast": 12098,
-        "total_stl": 2430,
-        "total_blk": 1193,
+        "gp": 1635,
+        "total_pts": 43649,
+        "total_reb": 12183,
+        "total_ast": 12104,
+        "total_stl": 2433,
+        "total_blk": 1194,
         "ppg": 26.7,
         "rpg": 7.5,
         "apg": 7.4,
@@ -47,21 +47,21 @@
         "best_season_ast": 10.2
       },
       "last_game": {
-        "pts": 22,
-        "reb": 3,
+        "pts": 21,
+        "reb": 6,
         "ast": 6,
-        "stl": 0,
-        "blk": 0,
-        "min": 31,
-        "fg_pct": 50.0,
-        "date": "Nov 19, 2026",
-        "matchup": "PHI @ ORL",
+        "stl": 3,
+        "blk": 1,
+        "min": 35,
+        "fg_pct": 64.3,
+        "date": "Nov 21, 2026",
+        "matchup": "PHI vs. MIL",
         "result": "W",
         "score": {
-          "team1_abbr": "PHI",
-          "team1_pts": 121,
-          "team2_abbr": "ORL",
-          "team2_pts": 116
+          "team1_abbr": "MIL",
+          "team1_pts": 129,
+          "team2_abbr": "PHI",
+          "team2_pts": 132
         }
       },
       "season_history": [
@@ -100,8 +100,8 @@
         {
           "season": "2026-27",
           "team": "PHI",
-          "gp": 12,
-          "ppg": 15.7,
+          "gp": 13,
+          "ppg": 16.1,
           "rpg": 6.8,
           "apg": 6.8
         }
@@ -123,51 +123,51 @@
       "current_season": {
         "season": "2025-26",
         "team": "POR",
-        "gp": 17,
-        "ppg": 22.6,
-        "rpg": 5.9,
+        "gp": 18,
+        "ppg": 22.4,
+        "rpg": 6.1,
         "apg": 5.4,
         "spg": 0.9,
-        "bpg": 0.5,
+        "bpg": 0.6,
         "fg_pct": 0,
-        "fg3_pct": 38.6,
-        "ft_pct": 71.2,
-        "total_pts": 384,
-        "total_reb": 101,
-        "total_ast": 92
+        "fg3_pct": 39.7,
+        "ft_pct": 70.3,
+        "total_pts": 404,
+        "total_reb": 110,
+        "total_ast": 97
       },
       "career": {
-        "gp": 438,
-        "total_pts": 5957,
-        "total_reb": 2771,
-        "total_ast": 1529,
+        "gp": 439,
+        "total_pts": 5977,
+        "total_reb": 2780,
+        "total_ast": 1534,
         "total_stl": 351,
-        "total_blk": 205,
+        "total_blk": 207,
         "ppg": 13.6,
         "rpg": 6.3,
         "apg": 3.5,
-        "fg_pct": 46.4,
+        "fg_pct": 46.5,
         "seasons": 7,
         "best_season_pts": 24.2,
         "best_season_reb": 7.3,
         "best_season_ast": 6.7
       },
       "last_game": {
-        "pts": 27,
-        "reb": 8,
-        "ast": 4,
-        "stl": 1,
-        "blk": 1,
-        "min": 30,
-        "fg_pct": 57.9,
-        "date": "Nov 17, 2026",
-        "matchup": "POR @ MIN",
+        "pts": 20,
+        "reb": 9,
+        "ast": 5,
+        "stl": 0,
+        "blk": 2,
+        "min": 36,
+        "fg_pct": 53.8,
+        "date": "Nov 22, 2026",
+        "matchup": "POR @ NY",
         "result": "L",
         "score": {
           "team1_abbr": "POR",
-          "team1_pts": 98,
-          "team2_abbr": "MIN",
-          "team2_pts": 106
+          "team1_pts": 96,
+          "team2_abbr": "NY",
+          "team2_pts": 97
         }
       },
       "season_history": [
@@ -206,10 +206,10 @@
         {
           "season": "2026-27",
           "team": "POR",
-          "gp": 13,
-          "ppg": 24.2,
-          "rpg": 6.2,
-          "apg": 6.1
+          "gp": 14,
+          "ppg": 23.9,
+          "rpg": 6.4,
+          "apg": 6.0
         }
       ]
     },
